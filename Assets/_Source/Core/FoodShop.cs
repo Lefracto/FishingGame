@@ -6,7 +6,7 @@ namespace Core
   public class FoodShop : MonoBehaviour
   {
     // TODO: rewrite
-    //[SerializeField] private string _configFileName;
+    [SerializeField] private string _configFileName;
     [SerializeField] private PlayerWallet _wallet;
     [SerializeField] private FoodInventory _inventory;
     [SerializeField] private List<FoodItem> _sellPositions;
