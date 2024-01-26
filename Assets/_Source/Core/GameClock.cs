@@ -1,41 +1,56 @@
 using UnityEngine;
 using System;
+using System.Collections;
 using Core;
-using UnityEngine.Events;
+using Unity.VisualScripting;
 
 public class GameClock : MonoBehaviour
 {
-  private GameTime _time;
-  private DayOfWeek _dayOfWeek;
+  private GameTime _currentTime;
 
   [SerializeField] private int _deltaUpdateMinutes;
   [SerializeField] private int _deltaUpdateHours;
 
   [Space(15)] [SerializeField] private int _updateCooldown;
 
-  [Space(15)] [SerializeField] private UnityEvent _onDayChanged;
-  [Space(10)] [SerializeField] private UnityEvent _onWeekChanged;
-  
-  private void StartGameTime()
-  {
-    InvokeRepeating(nameof(UpdateTime), 0, _updateCooldown);
-  }
-  
-  private void UpdateTime()
-  {
-    if (_time.AddTime(_deltaUpdateHours, _deltaUpdateMinutes) is false) 
-      return;
-    
-    _onDayChanged.Invoke();
-    _dayOfWeek++;
+  private Action<DayOfWeek> _onDayChanged;
+  private Action _onWeekChanged;
+  private Coroutine _timeUpdateCoroutine;
 
-    if (_dayOfWeek == DayOfWeek.Monday)
-      _onWeekChanged.Invoke();
+  public void AddOnDayChangedHandler(Action<DayOfWeek> handler)
+    => _onDayChanged += handler;
+
+  public void AddOnWeekChangedHandler(Action handler)
+    => _onWeekChanged += handler;
+
+  public void StartGameTime()
+    => _timeUpdateCoroutine = StartCoroutine(UpdateTime());
+
+  public void StopGameTime()
+    => StopCoroutine(_timeUpdateCoroutine);
+
+  private IEnumerator UpdateTime()
+  {
+    while (true)
+    {
+      yield return new WaitForSecondsRealtime(_updateCooldown);
+      bool isDayChanged = false;
+      _currentTime.AddHours(_deltaUpdateHours, ref isDayChanged);
+      _currentTime.AddMinutes(_deltaUpdateMinutes, ref isDayChanged);
+
+      if (!isDayChanged)
+        continue;
+
+      _onDayChanged.Invoke(_currentTime.DayOfWeek);
+
+      if (_currentTime.DayOfWeek == DayOfWeek.Monday)
+        _onWeekChanged.Invoke();
+    }
   }
 
   public string GetFormattedTime()
-    => _time.ToString();
+    => _currentTime.ToString();
 
-  public int GetDayOfWeek()
-    => (int)_dayOfWeek;
+  public GameTime GetCurrentTime()
+    => _currentTime.CloneViaSerialization();
 }
