@@ -293,6 +293,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1573224727}
   - component: {fileID: 1573224726}
+  - component: {fileID: 1573224729}
+  - component: {fileID: 1573224728}
   m_Layer: 0
   m_Name: GameTime
   m_TagString: Untagged
@@ -336,3 +338,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1573224728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573224725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5fceca213a4d689531f9dad7c12964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _configFileName: 
+  _wallet: {fileID: 0}
+  _inventory:
+    _hungry: {fileID: 0}
+  _sellPositions: []
+--- !u!114 &1573224729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573224725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11bd7f3036363542aad175bc70ce7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _satietyLevel: 0
+  _satiationDecreaseTimeSeconds: 0

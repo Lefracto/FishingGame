@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7325e2bce1d73546b7cb68c06f14024, type: 3}
   m_Name: Bread
   m_EditorClassIdentifier: 
-  _name: 
-  _portionsCount: 0
-  _satietyPerPortion: 0
-  _itemIcon: {fileID: 0}
+  _id: 0
+  _name: Bread
+  _itemIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  _countPortions: 0
+  _satietyPerPortion: -85

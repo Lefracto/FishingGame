@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Food Item")]
 public class FoodItem : ScriptableObject
 {
+  [SerializeField] private int _id;
   [SerializeField] private string _name;
   [SerializeField] private Sprite _itemIcon;
   [SerializeField] private int _countPortions;
@@ -27,4 +28,6 @@ public class FoodItem : ScriptableObject
   {
     get => _satietyPerPortion;
   }
+    
+  public int Id { get; set; }
 }
