@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Core
 {
   [Serializable]
-  public class FoodInventory
+  public class FoodInventory : MonoBehaviour
   {
     private readonly Dictionary<int, FoodItem> _items = new ();
 
