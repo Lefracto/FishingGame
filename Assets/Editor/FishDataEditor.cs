@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace Editor
 {
-  [CustomEditor(typeof(FishData))]
+  [CustomEditor(typeof(FishGenus))]
   public class FishDataEditor : UnityEditor.Editor
   {
-    private FishData _fish;
+    private FishGenus _fish;
     private const int FISH_IMAGE_HEIGHT = 167;
     private const int FISH_IMAGE_WIDTH = 250;
     private const int ICON_FIELD_SPACE = 15;
 
     public override void OnInspectorGUI()
     {
-      _fish = (FishData)target;
+      _fish = (FishGenus)target;
       serializedObject.Update();
 
       _fish.Name = EditorGUILayout.TextField("Fish Name", _fish.Name);

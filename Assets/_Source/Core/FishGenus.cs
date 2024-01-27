@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "FishData")]
-public class FishData : ScriptableObject
+public class FishGenus : ScriptableObject
 {
   public string Name { get; set; }
   public Sprite FishImage { get; set; }
