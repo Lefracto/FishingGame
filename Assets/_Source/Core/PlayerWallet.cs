@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class PlayerWallet : MonoBehaviour
 {
   private int _amountOfMoney;
+  private Action<int> _onAmountOfMoneyChanged;
 
   private int AmountOfMoney
   {
@@ -12,15 +13,20 @@ public class PlayerWallet : MonoBehaviour
     set
     {
       if (value < 0)
+      {
         Debug.LogError("Attempt to set the amount of money negative value");
+        return;
+      }
       
       _amountOfMoney = value;
-      _onAmountOfMoneyChanged.Invoke();
+      _onAmountOfMoneyChanged.Invoke(_amountOfMoney);
     }
   }
 
-  [SerializeField] private UnityEvent _onAmountOfMoneyChanged;
 
+  public void AddOnMoneyChangedHandler(Action<int> handler)
+    => _onAmountOfMoneyChanged += handler;
+  
   public bool TryWriteOffMoney(int amountToWriteOff)
   {
     if (AmountOfMoney < amountToWriteOff)

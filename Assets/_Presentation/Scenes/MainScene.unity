@@ -316,13 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _deltaUpdateMinutes: 10
   _deltaUpdateHours: 0
-  _updateCooldown: 5
-  _onDayChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onWeekChanged:
-    m_PersistentCalls:
-      m_Calls: []
+  _updateCooldown: 11
 --- !u!4 &1573224727
 Transform:
   m_ObjectHideFlags: 0
