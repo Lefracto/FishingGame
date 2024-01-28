@@ -344,10 +344,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5fceca213a4d689531f9dad7c12964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _configFileName: 
+  _configFileName: PositionsCosts.json
   _wallet: {fileID: 0}
-  _inventory:
-    _hungry: {fileID: 0}
+  _inventory: {fileID: 0}
   _sellPositions: []
 --- !u!114 &1573224729
 MonoBehaviour:
