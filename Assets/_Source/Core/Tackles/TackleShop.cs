@@ -9,7 +9,5 @@ namespace Core
     private List<LineModel> _lines;
     private List<HookModel> _hooks;
     private List<BaitModel> _baits;
-
   }
-  
 }

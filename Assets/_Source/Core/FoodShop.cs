@@ -12,24 +12,17 @@ namespace Core
     [Space(15)] [SerializeField] private PlayerWallet _wallet;
     [SerializeField] private FoodInventory _inventory;
     [SerializeField] private List<FoodItem> _sellPositions;
-
-    private Dictionary<int, int> _costsOfPositions;
-
+    [SerializeField] private string _configPath;
+    private CostsContainer _container;
+    
     void Start()
     {
-      ReadFoodCost();
+      _container = new CostsContainer(_configPath);
     }
-
-    private void ReadFoodCost()
-    {
-      _costsOfPositions = new Dictionary<int, int>();
-      string serializedObject = File.ReadAllText(_configFileName);
-      _costsOfPositions = JsonConvert.DeserializeObject<Dictionary<int, int>>(serializedObject);
-    }
-
+    
     public bool TrySellFood(int goodId)
     {
-      if (!_wallet.TryWriteOffMoney(_costsOfPositions[goodId]))
+      if (!_wallet.TryWriteOffMoney(_container.Costs[goodId]))
         return false;
 
       _inventory.AddItem(_sellPositions[goodId]);
