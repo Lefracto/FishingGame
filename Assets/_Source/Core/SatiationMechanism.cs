@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SatiationMechanism : MonoBehaviour
@@ -9,26 +10,32 @@ public class SatiationMechanism : MonoBehaviour
 
   [SerializeField] private int _satiationDecreaseTimeSeconds;
 
+  private Coroutine _satietyDecreaseCoroutine;
+
   public int SatietyLevel()
     => _satietyLevel;
-
-
+  
   public bool IsPlayerHungry
     => _satietyLevel == 0;
 
   public void StartHunger()
   {
-    InvokeRepeating(nameof(DecreaseSatietyLevel), _satiationDecreaseTimeSeconds, _satiationDecreaseTimeSeconds);
+    _satietyDecreaseCoroutine = StartCoroutine(DecreaseSatietyLevel());
   }
 
-  public void Eat(FoodItem food)
+  private IEnumerator DecreaseSatietyLevel()
   {
-    _satietyLevel += food.SatietyPerPortion;
+    while (true)
+    {
+      if (_satietyLevel > 0)
+        _satietyLevel--;
+
+      yield return new WaitForSeconds(_satiationDecreaseTimeSeconds);
+    }
   }
 
-  private void DecreaseSatietyLevel()
+  public void IncreaseSatietyLevel(int satietyUnits)
   {
-    if (_satietyLevel > 0)
-      _satietyLevel--;
+    _satietyLevel += satietyUnits;
   }
 }

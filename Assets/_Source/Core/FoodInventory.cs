@@ -7,12 +7,12 @@ namespace Core
   [Serializable]
   public class FoodInventory : MonoBehaviour
   {
-    private readonly Dictionary<int, FoodItem> _items = new ();
+    private readonly Dictionary<int, FoodItem> _items = new();
 
     [SerializeField] private SatiationMechanism _hungry;
-    
+
     private static int _lastId;
-    
+
     public void AddItem(FoodItem item)
     {
       item.Id = _lastId;
@@ -22,8 +22,13 @@ namespace Core
 
     public void EatItem(int itemId)
     {
-      _hungry.Eat(_items[itemId]);
-      _items.Remove(itemId);
+      _hungry.IncreaseSatietyLevel(_items[itemId].SatietyPerPortion);
+      _items[itemId].CountPortions--;
+
+      if (_items[itemId].CountPortions == 0)
+      {
+        _items.Remove(itemId);
+      }
     }
   }
 }

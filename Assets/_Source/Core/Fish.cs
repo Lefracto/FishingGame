@@ -2,9 +2,9 @@
 {
   public class Fish
   {
-    public int Id { get; private set; }
-    public int Weight { get; private set; }
-    public FishGenus Genus { get; private set; }
+    public int Id { get; }
+    public int Weight { get; }
+    public FishGenus Genus { get; }
 
     public Fish(FishGenus genus, int weight, int id)
     {

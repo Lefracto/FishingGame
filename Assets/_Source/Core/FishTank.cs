@@ -5,8 +5,13 @@ namespace Core
   public class FishTank
   {
     private List<Fish> _fishes;
+
+    public List<Fish> GetFishes()
+    {
+      return new List<Fish>(_fishes);
+    }
     
-    public void AddFish(Fish fish)
+    public void TakeInFish(Fish fish)
     {
       _fishes.Add(fish);
     }

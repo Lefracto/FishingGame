@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerWallet : MonoBehaviour
+public class Wallet : MonoBehaviour
 {
   private int _amountOfMoney;
   private Action<int> _onAmountOfMoneyChanged;

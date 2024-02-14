@@ -9,7 +9,7 @@ namespace Core
   {
     [SerializeField] private string _configFileName;
 
-    [Space(15)] [SerializeField] private PlayerWallet _wallet;
+    [Space(15)] [SerializeField] private Wallet _wallet;
     [SerializeField] private FoodInventory _inventory;
     [SerializeField] private List<FoodItem> _sellPositions;
     [SerializeField] private string _configPath;
