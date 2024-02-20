@@ -2,11 +2,21 @@
 
 namespace Core
 {
-  public class Rod
+  public class Rod : ITackle
   {
-    public RodModel Model { get; set; }
+    public Rod(TackleModel rodModel)
+    {
+      WearLevel = 1;
+      _model = rodModel as RodModel;
+    }
+    
+    private readonly RodModel _model;
     
     [field: Range(0, 1)]
     public float WearLevel { get; private set; }
+
+    public TackleModel GetModel()
+      => _model;
+    
   }
 }

@@ -10,5 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00e8856ee4ae4356b9d7791b13fa9a5d, type: 3}
-  m_Name: Spining
+  m_Name: RodModel
   m_EditorClassIdentifier: 
+  <Id>k__BackingField: 12
+  <Visual>k__BackingField:
+    <Name>k__BackingField: 123
+    <Icon>k__BackingField: {fileID: 21300000, guid: f9f14ca53d00f694fb3be7bd06392e78, type: 3}
+    <Description>k__BackingField: 123
+  <MaxWeight>k__BackingField: 123

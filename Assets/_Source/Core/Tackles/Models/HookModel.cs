@@ -2,8 +2,9 @@
 
 namespace Core
 {
-  public class HookModel : ScriptableObject
+  public class HookModel : TackleModel
   {
-    public TackleVisual Visual { get; set; }
+    public override TackleType GetTackleType()
+      => TackleType.Hook;
   }
 }

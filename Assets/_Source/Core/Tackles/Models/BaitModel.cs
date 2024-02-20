@@ -2,9 +2,11 @@
 
 namespace Core
 {
-  public class BaitModel : ScriptableObject
+  public class BaitModel : TackleModel
   {
-    public TackleVisual Visual { get; set; }
+    public override TackleType GetTackleType()
+      => TackleType.Bait;
+    
     public int CountInPack { get; set; }
   }
 }

@@ -2,7 +2,7 @@
 
 namespace Core
 {
-  public class FishTank
+  public class FishInventory
   {
     private List<Fish> _fishes;
 

@@ -25,7 +25,7 @@ namespace Core
       if (!_wallet.TryWriteOffMoney(_container.Costs[goodId]))
         return false;
 
-      _inventory.AddItem(_sellPositions[goodId]);
+      _inventory.AddItem(_sellPositions.Find(position => position.Id == goodId));
       return true;
     }
   }

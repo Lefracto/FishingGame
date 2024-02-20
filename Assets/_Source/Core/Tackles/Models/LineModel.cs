@@ -2,9 +2,11 @@
 
 namespace Core
 {
-  public class LineModel : ScriptableObject
+  public class LineModel : TackleModel
   {
-    public TackleVisual Visual { get; set; }
+    public override TackleType GetTackleType()
+      => TackleType.Line;
+    
     public int MaxLoad { get; set; }
   }
 }

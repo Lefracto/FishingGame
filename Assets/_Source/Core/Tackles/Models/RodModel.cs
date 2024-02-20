@@ -3,11 +3,15 @@
 namespace Core
 {
   [CreateAssetMenu(fileName = "RodModel")]
-  public class RodModel : ScriptableObject, ITackleModel
+  public class RodModel : TackleModel
   {
-    public TackleVisual Visual { get; set; }
+    public override TackleType GetTackleType()
+      => TackleType.Rod;
 
-    public int MaxWeight { get; set; }
-    // some properties 
+    [field: SerializeField] public int MaxWeight { get; set; }
+
+  //  public override string ToString()
+   //   => $"{Visual.Name}\t {MaxWeight} kg";
+   
   }
 }

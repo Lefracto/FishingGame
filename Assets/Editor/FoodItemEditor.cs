@@ -1,4 +1,5 @@
 ﻿using UnityEditor;
+using UnityEngine;
 
 namespace Editor
 {
@@ -19,8 +20,12 @@ namespace Editor
       _foodItem.SatietyPerPortion = EditorGUILayout.IntField("Satiety per Portion", _foodItem.SatietyPerPortion);
 
       _foodItem.ItemIcon =
-        ItemsElementsEditor.SpriteEditor(_foodItem.ItemIcon, FOOD_IMAGE_HEIGHT, FOOD_IMAGE_WIDTH, "Food");
+        AssetVisualEditor.SpriteEditor(_foodItem.ItemIcon, FOOD_IMAGE_HEIGHT, FOOD_IMAGE_WIDTH, "Food");
+      
       serializedObject.ApplyModifiedProperties();
+      
+      if (GUI.changed) 
+        EditorUtility.SetDirty(target); 
     }
   }
 }

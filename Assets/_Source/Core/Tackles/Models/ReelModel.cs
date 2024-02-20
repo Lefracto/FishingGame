@@ -2,9 +2,12 @@
 
 namespace Core
 {
-  public class ReelModel : ScriptableObject
+  [CreateAssetMenu(fileName = "ReelModel")]
+  public class ReelModel : TackleModel
   {
-    public TackleVisual Visual { get; set; }
+    public override TackleType GetTackleType()
+      => TackleType.Reel;
+    
     public int Power { get; set; }
   }
 }
