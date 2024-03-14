@@ -2,21 +2,22 @@
 
 namespace Core
 {
-  public class Reel
+  public class Reel : ITackle
   {
-    public ReelModel Model { get; set; }
+    public int Id { get; }
+    
+    private readonly ReelModel _model;
+    public TackleModel GetModel()
+      => _model;
     
     [field: Range(0, 1)]
     public float WearLevel { get; private set; }
 
-    public static Reel CreateReel(TackleModel rodModel)
+    public Reel(TackleModel rodModel, int id)
     {
-      Reel reel = new()
-      {
-        WearLevel = 1,
-        Model = rodModel as ReelModel
-      };
-      return reel;
+      Id = id;
+      WearLevel = 1;
+      _model = rodModel as ReelModel;
     }
   }
 }

@@ -4,8 +4,10 @@ namespace Core
 {
   public class Rod : ITackle
   {
-    public Rod(TackleModel rodModel)
+    public int Id { get; }
+    public Rod(TackleModel rodModel, int id)
     {
+      Id = id;
       WearLevel = 1;
       _model = rodModel as RodModel;
     }

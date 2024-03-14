@@ -2,9 +2,21 @@
 
 namespace Core
 {
-  public class Bait
+  public class Bait : ITackle
   {
-    private BaitModel Model { get; set; }
-    public int Count { get; private set; }
+    public int Id { get; }
+
+    private readonly BaitModel _model;
+
+    public Bait(TackleModel model, int id)
+    {
+      Id = id;
+      _model = model as BaitModel;
+    }
+
+    public TackleModel GetModel()
+      => _model;
+    
+    public int Count { get; set; }
   }
 }
