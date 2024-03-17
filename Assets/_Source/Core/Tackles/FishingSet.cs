@@ -10,6 +10,7 @@
     public ITackle this[TackleType type]
     {
       set => GetType().GetProperty(type.ToString())?.SetValue(this, value);
+      get => GetType().GetProperty(type.ToString())?.GetValue(this) as ITackle;
     }
     
     public Rod Rod { get; private set; }

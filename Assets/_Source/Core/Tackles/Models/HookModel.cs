@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Core
+﻿namespace Core
 {
   public class HookModel : TackleModel
   {
