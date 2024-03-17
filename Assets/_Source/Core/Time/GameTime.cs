@@ -53,8 +53,8 @@ namespace Core
 
     public override string ToString()
     {
-      string hoursString = Hours == 0 ? "00" : Hours.ToString();
-      string minutesString = Minutes == 0 ? "00" : Minutes.ToString();
+      string hoursString = Hours < 10 ? "0" + Hours : Hours.ToString();
+      string minutesString = Minutes < 10 ? "0" + Minutes : Minutes.ToString();
       return $"{hoursString}:{minutesString}";
     }
   }

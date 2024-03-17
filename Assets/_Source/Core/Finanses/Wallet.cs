@@ -1,8 +1,14 @@
 using System;
 using UnityEngine;
 
-public class Wallet : MonoBehaviour
+public class Wallet
 {
+  public Wallet(int starterAmount)
+  {
+    _amountOfMoney = starterAmount;
+    _onAmountOfMoneyChanged = i => { };
+  }
+  
   private int _amountOfMoney;
   private Action<int> _onAmountOfMoneyChanged;
 
