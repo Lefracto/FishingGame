@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using Core;
+using TMPro;
 using Unity.VisualScripting;
 
 public class GameClock : MonoBehaviour
@@ -15,7 +16,31 @@ public class GameClock : MonoBehaviour
 
   private Action<DayOfWeek> _onDayChanged;
   private Action _onWeekChanged;
+  private Action _onTimeChanged;
+
   private Coroutine _timeUpdateCoroutine;
+
+  [Space(15)] [SerializeField] private TMP_Text _timeText;
+  [SerializeField] private TMP_Text _dayOfWeekText;
+
+  private void Start()
+  {
+    _currentTime = new GameTime();
+
+    _onTimeChanged = UpdateTimeText;
+    _onDayChanged = UpdateWeekDayText;
+    _onWeekChanged = UpdateTimeText;
+
+    StartGameTime();
+  }
+
+  private void UpdateTimeText()
+  {
+    _timeText.text = GetFormattedTime();
+  }
+
+  private void UpdateWeekDayText(DayOfWeek dayOfWeek)
+    => _dayOfWeekText.text = dayOfWeek.ToString();
 
   public void AddOnDayChangedHandler(Action<DayOfWeek> handler)
     => _onDayChanged += handler;
@@ -23,7 +48,10 @@ public class GameClock : MonoBehaviour
   public void AddOnWeekChangedHandler(Action handler)
     => _onWeekChanged += handler;
 
-  public void StartGameTime()
+  public void AddOnTimeChangedHandler(Action handler)
+    => _onTimeChanged += handler;
+
+  private void StartGameTime()
     => _timeUpdateCoroutine = StartCoroutine(UpdateTime());
 
   public void StopGameTime()
@@ -37,7 +65,8 @@ public class GameClock : MonoBehaviour
       bool isDayChanged = false;
       _currentTime.AddHours(_deltaUpdateHours, ref isDayChanged);
       _currentTime.AddMinutes(_deltaUpdateMinutes, ref isDayChanged);
-
+      _onTimeChanged.Invoke();
+      
       if (!isDayChanged)
         continue;
 
@@ -45,10 +74,11 @@ public class GameClock : MonoBehaviour
 
       if (_currentTime.DayOfWeek == DayOfWeek.Monday)
         _onWeekChanged.Invoke();
+
     }
   }
 
-  public string GetFormattedTime()
+  private string GetFormattedTime()
     => _currentTime.ToString();
 
   public GameTime GetCurrentTime()

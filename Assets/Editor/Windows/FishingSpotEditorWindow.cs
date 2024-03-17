@@ -163,9 +163,9 @@ namespace Editor.Windows
       Repaint();
     }
 
-    private int _minDepth = 10; 
-    private int _maxDepth = 500;
-    private int _depthVariation = 20;
+    // private int _minDepth = 10; 
+    //private int _maxDepth = 500;
+    //private int _depthVariation = 20;
 
     private short CalculateDepth(int x, int y)
     {

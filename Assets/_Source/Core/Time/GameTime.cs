@@ -13,6 +13,7 @@ namespace Core
     private int _dayNumber;
 
     private DayOfWeek _dayOfWeek;
+
     public DayOfWeek DayOfWeek
     {
       get => _dayOfWeek;
@@ -22,18 +23,18 @@ namespace Core
         _dayNumber++;
       }
     }
-    
+
     public void AddMinutes(int minutes, ref bool isDayChanged)
     {
       Minutes += minutes;
 
       if (Minutes < MINUTES_IN_HOUR)
         return;
-      
+
       Minutes -= MINUTES_IN_HOUR;
       AddHours(1, ref isDayChanged);
     }
-    
+
     public void AddHours(int hours, ref bool isDayChanged)
     {
       Hours += hours;
@@ -41,12 +42,20 @@ namespace Core
       if (Hours < HOURS_IN_DAY)
         return;
 
-      DayOfWeek++;
+      if (DayOfWeek == DayOfWeek.Saturday)
+        DayOfWeek = DayOfWeek.Sunday;
+      else
+        DayOfWeek++;
+
       Hours -= HOURS_IN_DAY;
       isDayChanged = true;
     }
 
     public override string ToString()
-      => $"{Hours}:{Minutes}";
+    {
+      string hoursString = Hours == 0 ? "00" : Hours.ToString();
+      string minutesString = Minutes == 0 ? "00" : Minutes.ToString();
+      return $"{hoursString}:{minutesString}";
+    }
   }
 }
