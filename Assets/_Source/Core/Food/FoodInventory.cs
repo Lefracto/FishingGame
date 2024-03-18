@@ -1,34 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
+using Zenject;
 
 namespace Core
 {
   [Serializable]
-  public class FoodInventory : MonoBehaviour
+  public class FoodInventory
   {
-    private readonly Dictionary<int, FoodItem> _items = new();
+    private  Dictionary<int, (FoodItem, int)> _items = new();
 
-    [SerializeField] private SatiationMechanism _hungry;
+    [Inject] [SerializeField] private SatiationMechanism _hungry;
 
     private static int _lastId;
+
+    public Dictionary<int, (FoodItem, int)> GetItems()
+      => _items;
 
     public void AddItem(FoodItem item)
     {
       item.Id = _lastId;
-      _items[_lastId] = item;
+      _items[_lastId] = (item, item.CountPortions);
       _lastId++;
     }
 
     public void EatItem(int itemId)
     {
-      _hungry.IncreaseSatietyLevel(_items[itemId].SatietyPerPortion);
-      _items[itemId].CountPortions--;
+      (FoodItem, int) itemTuple = _items[itemId];
+      itemTuple.Item2--;
 
-      if (_items[itemId].CountPortions == 0)
-      {
+      if (itemTuple.Item2 == 0)
         _items.Remove(itemId);
-      }
+      else
+        _items[itemId] = itemTuple;
+
+      _hungry.IncreaseSatietyLevel(itemTuple.Item2);
     }
   }
 }
