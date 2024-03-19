@@ -11,11 +11,11 @@ namespace Editor.Windows
   {
     //[Header("Tech Setting")]
     private FishingSpot _fishingSpot;
-    private Vector2 _imageDisplaySize = new (256, 256); // Image Scale = _imageDisplaySize.y
+    private Vector2 _imageDisplaySize = new (256, 725); // Image Scale = _imageDisplaySize.y
     
     private Vector2Int _gridSize = new (28, 28);
   
-    private short[,] _gridNumbers; 
+   // private short[,] _gridNumbers; 
     private int _brushSize = 1; 
     private short _currentDepth = 14;
 
@@ -37,7 +37,7 @@ namespace Editor.Windows
 
     private void InitializeGridState()
     {
-      _gridNumbers = new short[_gridSize.x, _gridSize.y];
+      //_fishingSpot = new short[_gridSize.x, _gridSize.y];
     }
 
     private void OnGUI()
@@ -94,7 +94,12 @@ namespace Editor.Windows
         
         if(_showBrush)
           DrawBrushIndicator(spriteRect);
+        
+        
       }
+      
+      
+      
 
       EditorGUILayout.EndVertical();
       EditorGUILayout.EndHorizontal();
@@ -135,11 +140,11 @@ namespace Editor.Windows
 
           EditorGUI.DrawRect(cellRect, new Color());
 
-          if (_gridNumbers[x, y] != -1)
+          if (_fishingSpot[x, y] != -1)
           {
             Handles.DrawSolidRectangleWithOutline(cellRect, new Color(0, 0, 0, 0), Color.gray);
             GUIStyle numberStyle = new (GUI.skin.label) { alignment = TextAnchor.MiddleCenter };
-            GUI.Label(cellRect, _gridNumbers[x, y].ToString(), numberStyle);
+            GUI.Label(cellRect, _fishingSpot[x, y].ToString(), numberStyle);
 
 
           }
@@ -152,10 +157,10 @@ namespace Editor.Windows
       {
         for (int y = 0; y < _gridSize.y; y++)
         {
-          if (_gridNumbers[x, y] != -1)
+          if (_fishingSpot[x, y] != -1)
           {
             Debug.Log(CalculateDepth(x, y));
-            _gridNumbers[x, y] = CalculateDepth(x, y);
+            _fishingSpot[x, y] = CalculateDepth(x, y);
           }
         }
       }
@@ -187,9 +192,9 @@ namespace Editor.Windows
             continue;
         
           if (_paintingMode)
-            _gridNumbers[x, y] = _currentDepth;
+            _fishingSpot[x, y] = _currentDepth;
           else
-            _gridNumbers[x, y] = -1;
+            _fishingSpot[x, y] = -1;
         }
       }
     }
