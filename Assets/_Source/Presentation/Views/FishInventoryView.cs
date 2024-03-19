@@ -26,8 +26,18 @@ public class FishInventoryView : MonoBehaviour
 
   }
 
+  private void ResetSelect()
+  {
+    _icon.sprite = null;
+    _fishName.text = " ";
+    _fishWeight.text = " ";
+    _fishDescription.text = " ";
+  }
+  
   public void RedrawCells()
   {
+    ResetSelect();
+    
     foreach (Transform child in _content)
       Destroy(child.gameObject);
 

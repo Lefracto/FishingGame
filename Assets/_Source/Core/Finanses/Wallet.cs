@@ -41,4 +41,7 @@ public class Wallet
     AmountOfMoney -= amountToWriteOff;
     return true;
   }
+
+  public void AddMoney(int amountToAdd)
+    => AmountOfMoney += amountToAdd;
 }

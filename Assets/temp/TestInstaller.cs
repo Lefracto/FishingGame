@@ -28,6 +28,9 @@ public class TestInstaller : MonoInstaller
 
     Container.Bind<SatiationMechanism>().FromInstance(_satiationMechanism).AsSingle();
     Container.Bind<FoodInventory>().AsSingle().NonLazy();
+
+    Container.Bind<FishSeller>().AsSingle().NonLazy();
+
     Container.Bind<FishInventory>().AsSingle().NonLazy();
 
   }
