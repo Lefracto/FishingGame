@@ -1,24 +1,16 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Linq;
 using UnityEngine;
-using System.IO;
+using Zenject;
 
 namespace Core
 {
-  public class FoodShop : MonoBehaviour
+  public class FoodShop 
   {
-    [SerializeField] private string _configFileName;
-
-    [Space(15)] [SerializeField] private Wallet _wallet;
-    [SerializeField] private FoodInventory _inventory;
-    [SerializeField] private List<FoodItem> _sellPositions;
-    [SerializeField] private string _configPath;
-    private CostsContainer _container;
-    
-    void Start()
-    {
-      _container = new CostsContainer(_configPath);
-    }
+    [Space(15)] [Inject] private Wallet _wallet;
+    [Inject] private FoodInventory _inventory;
+    [Inject] private List<FoodItem> _sellPositions;
+    [Inject] private readonly CostsContainer _container;
     
     public bool TrySellFood(int goodId)
     {
@@ -27,6 +19,11 @@ namespace Core
 
       _inventory.AddItem(_sellPositions.Find(position => position.Id == goodId));
       return true;
+    }
+
+    public (FoodItem, int) GetFood(int id)
+    {
+      return (_sellPositions.FirstOrDefault(x => x.Id == id), _container.Costs[id]);
     }
   }
 }

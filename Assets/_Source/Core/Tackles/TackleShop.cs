@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace Core
 {
@@ -7,13 +8,13 @@ namespace Core
   {
     [SerializeField] private string _configPath;
     [SerializeField] private List<TackleModel> _models;
+    [Inject] private CostsContainer _costsContainer;
     [SerializeField] private TackleInventory _inventory;
-    [SerializeField] private Wallet _wallet;
-    private CostsContainer _costsContainer;
 
+     private Wallet _wallet;
     private void Start()
     {
-      _costsContainer = new CostsContainer(_configPath);
+      
     }
     
     public List<TackleModel> GetOneTackleTypeModels(TackleType type)

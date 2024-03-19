@@ -42,6 +42,9 @@ public class SatiationMechanism : MonoBehaviour
   }
 
   public void IncreaseSatietyLevel(int satietyUnits)
-    => _satietyLevel += satietyUnits;
-  
+  {
+    _satietyLevel += satietyUnits;
+    _onHungryChanged.Invoke(_satietyLevel);
+
+  }
 }

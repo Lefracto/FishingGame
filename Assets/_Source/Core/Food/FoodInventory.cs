@@ -21,7 +21,7 @@ namespace Core
 
     public void AddItem(FoodItem item)
     {
-      item.Id = _lastId;
+//      item.Id = a;
       _items[_lastId] = (item, item.CountPortions);
       _lastId++;
     }
@@ -36,7 +36,7 @@ namespace Core
       else
         _items[itemId] = itemTuple;
 
-      _hungry.IncreaseSatietyLevel(itemTuple.Item2);
+      _hungry.IncreaseSatietyLevel(itemTuple.Item1.SatietyPerPortion);
     }
   }
 }

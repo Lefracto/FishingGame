@@ -15,6 +15,7 @@ namespace Editor
       _foodItem = (FoodItem)target;
       serializedObject.Update();
 
+      _foodItem.Id = EditorGUILayout.IntField("Id", _foodItem.Id);
       _foodItem.Name = EditorGUILayout.TextField("Food Name", _foodItem.Name);
       _foodItem.CountPortions = EditorGUILayout.IntField("Count Portions", _foodItem.CountPortions);
       _foodItem.SatietyPerPortion = EditorGUILayout.IntField("Satiety per Portion", _foodItem.SatietyPerPortion);
@@ -22,10 +23,12 @@ namespace Editor
       _foodItem.ItemIcon =
         AssetVisualEditor.SpriteEditor(_foodItem.ItemIcon, FOOD_IMAGE_HEIGHT, FOOD_IMAGE_WIDTH, "Food");
       
-      serializedObject.ApplyModifiedProperties();
-      
-      if (GUI.changed) 
+
+      if (GUI.changed)
+      {
         EditorUtility.SetDirty(target); 
+        serializedObject.ApplyModifiedProperties();
+      }
     }
   }
 }

@@ -1,23 +1,23 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
-using System.IO;
+using UnityEngine;
 
 namespace Core
 {
   public class CostsContainer
   {
-    public CostsContainer(string path)
+    private readonly TextAsset _costsAsset;
+    public CostsContainer(TextAsset asset)
     {
-      _configPath = path;
+      _costsAsset = asset;
       Costs = ReadCosts();
     }
 
-    private readonly string _configPath;
     public Dictionary<int, int> Costs { get; private set; }
 
     private Dictionary<int, int> ReadCosts()
     {
-      string serializedObject = File.ReadAllText(_configPath);
+      string serializedObject = _costsAsset.text;
       return JsonConvert.DeserializeObject<Dictionary<int, int>>(serializedObject);
     }
   }

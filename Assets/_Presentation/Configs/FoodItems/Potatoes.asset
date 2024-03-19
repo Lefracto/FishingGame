@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7325e2bce1d73546b7cb68c06f14024, type: 3}
-  m_Name: Bread
+  m_Name: Potatoes
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: 0
-  <Name>k__BackingField: Bread
-  <ItemIcon>k__BackingField: {fileID: 21300000, guid: 78c64d190aa747647a9b31d65f620141, type: 3}
+  <Id>k__BackingField: 1
+  <Name>k__BackingField: Potatoes
+  <ItemIcon>k__BackingField: {fileID: 21300000, guid: 13fb6d0fbad9eff4e81bcc0df402aa56, type: 3}
   <CountPortions>k__BackingField: 3
-  <SatietyPerPortion>k__BackingField: 10
+  <SatietyPerPortion>k__BackingField: 3

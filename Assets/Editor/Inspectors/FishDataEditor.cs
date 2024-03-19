@@ -1,4 +1,5 @@
 using UnityEditor;
+using UnityEngine;
 
 namespace Editor
 {
@@ -26,6 +27,9 @@ namespace Editor
       _fish.Description = EditorGUILayout.TextField(DESCRIPTION_LABEL, _fish.Description);
       
       serializedObject.ApplyModifiedProperties();
+      
+      if (GUI.changed)
+        EditorUtility.SetDirty(target);
     }
   }
 }

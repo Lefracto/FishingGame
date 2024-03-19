@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7325e2bce1d73546b7cb68c06f14024, type: 3}
-  m_Name: Bread
+  m_Script: {fileID: 11500000, guid: 086432a5961c5d94395bf4d4197b3253, type: 3}
+  m_Name: Carp
   m_EditorClassIdentifier: 
-  <Id>k__BackingField: 0
-  <Name>k__BackingField: afw
-  <ItemIcon>k__BackingField: {fileID: 0}
-  <CountPortions>k__BackingField: 4444
-  <SatietyPerPortion>k__BackingField: 11111
