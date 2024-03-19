@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class SatiationMechanism : MonoBehaviour
 {
-  private const int MAX_SATIETY_LEVEL = 15;
+  public const int MAX_SATIETY_LEVEL = 13;
 
   [SerializeField] [Range(0, MAX_SATIETY_LEVEL)]
   private int _satietyLevel;
@@ -12,6 +13,10 @@ public class SatiationMechanism : MonoBehaviour
 
   private Coroutine _satietyDecreaseCoroutine;
 
+  private Action<int> _onHungryChanged;
+  public void AddOnHungryChangedHandler(Action<int> handler)
+    => _onHungryChanged += handler; 
+  
   public int SatietyLevel()
     => _satietyLevel;
   
@@ -20,6 +25,7 @@ public class SatiationMechanism : MonoBehaviour
 
   public void StartHunger()
   {
+    _onHungryChanged = i => { }; 
     _satietyDecreaseCoroutine = StartCoroutine(DecreaseSatietyLevel());
   }
 
@@ -29,13 +35,13 @@ public class SatiationMechanism : MonoBehaviour
     {
       if (_satietyLevel > 0)
         _satietyLevel--;
-
+      
+      _onHungryChanged.Invoke(_satietyLevel);
       yield return new WaitForSeconds(_satiationDecreaseTimeSeconds);
     }
   }
 
   public void IncreaseSatietyLevel(int satietyUnits)
-  {
-    _satietyLevel += satietyUnits;
-  }
+    => _satietyLevel += satietyUnits;
+  
 }

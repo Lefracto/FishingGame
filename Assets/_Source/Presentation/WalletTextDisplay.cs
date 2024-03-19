@@ -12,7 +12,6 @@ public class WalletTextDisplay : MonoBehaviour
   
   void Start()
   {
-    //_wallet = new Wallet(500); // Just for testing
     _wallet.AddOnMoneyChangedHandler(UpdateWalletText);
     _wallet.TryWriteOffMoney(10);
   }
