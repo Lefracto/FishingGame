@@ -25,6 +25,15 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
+      time: 0.32421052
+      value: 0.42710143
+      inSlope: 1.4682709
+      outSlope: 1.4682709
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 0.801312
       value: 0.893968
       inSlope: 0
@@ -36,38 +45,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  dailyActivity:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  DailyActivity: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   _fishPreferences:
   - BaitModelId: 0
-    AttractionLevel: 0
+    AttractionLevel: 21
   - BaitModelId: 0
     AttractionLevel: 0
   - BaitModelId: 0
     AttractionLevel: 0
-  - BaitModelId: 0
-    AttractionLevel: 73
-  - BaitModelId: 0
-    AttractionLevel: 55
