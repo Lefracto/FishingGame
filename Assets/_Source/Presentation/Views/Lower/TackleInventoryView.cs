@@ -5,7 +5,7 @@ using Zenject;
 public class TackleInventoryView : MonoBehaviour
 {
   
-  //  [Inject]
+
   private TackleInventory _inventory;
   
   [SerializeField] private GameObject _baitsCellPrefab;

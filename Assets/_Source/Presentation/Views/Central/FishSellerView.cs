@@ -1,19 +1,32 @@
 ﻿using Core;
-using TMPro;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using Zenject;
 
 namespace Presentation.Views
 {
   public class FishSellerView : MonoBehaviour
   {
-    [Inject] private FishSeller _seller;
-    //[SerializeField] private TMP_Text _tableText;
+    [SerializeField] private AssetReference _inventoryPanel;
+    [SerializeField] private Transform _canvasToSpawn;
+    private FishSeller _seller;
     
-    public void SellFish(int indexOfDeal)
+    [Inject]
+    public void Initialize(FishSeller seller)
+      => _seller = seller;
+
+    private void SellFish(int indexOfDeal)
+      => _seller.SellFishByDeal(indexOfDeal);
+
+    public async void ShowMenu()
     {
-      _seller.SellFishByDeal(indexOfDeal);
+      var menu = _inventoryPanel.InstantiateAsync(_canvasToSpawn);
+      await menu.Task;
+      if (menu.Result.TryGetComponent(out FishSellerViewHelper helper))
+        helper.InstallSellFishAction(SellFish);
+      else
+        Debug.LogError("Error with FishSellerViewHelper component.");
+      
     }
-    
   }
 }

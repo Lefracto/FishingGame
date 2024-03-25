@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 7e8d664dfdd19ee448bdf1a6d5589b16
+  m_SerializeEntries:
+  - m_GUID: 6b5e2e71f17a0c34a8f393135e8d4dbb
+    m_Address: Assets/_Presentation/Prefabs/Menus/FoodPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b673870f7eee8842a162c340f26c4b8
+    m_Address: Assets/_Presentation/Prefabs/Menus/FishPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f285ef84e49a2bf498871e07681a087c
+    m_Address: Assets/_Presentation/Prefabs/FoodItemPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2895962a2bb14c142be5c1d80424f636
+    m_Address: Assets/_Presentation/Prefabs/Menus/FoodShopPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d65e0ca1688cc1e43888f370afc5045e
+    m_Address: Assets/_Presentation/Prefabs/Menus/SellFishPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: bbaad43eff8c6654896c5a3ea82bdc8e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 3443d5ce564856a418d77e88aae1d1f9, type: 2}
+    - {fileID: 11400000, guid: d6fd94228355d6d4ebfc63c584947dea, type: 2}

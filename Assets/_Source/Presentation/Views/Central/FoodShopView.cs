@@ -1,35 +1,38 @@
 ﻿using Core;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.AddressableAssets;
 using Zenject;
 
 namespace Presentation.Views
 {
   public class FoodShopView : MonoBehaviour
   {
-    [Inject] private FoodShop _shop;
-
-    [SerializeField] private TMP_Text _foodLabel;
-    [SerializeField] private TMP_Text _costText;
-    [SerializeField] private Image _icon;
-    [SerializeField] private Button _buyButton;
-
+    private FoodShop _shop;
     private int _selectedFoodId;
-    
+    private FoodShopViewHelper _helper;
+
+    [SerializeField] private AssetReference _shopPanel;
+    [SerializeField] private Transform _canvasToSpawn;
+
+    [Inject]
+    public void Initialize(FoodShop shop)
+      => _shop = shop;
+
+    public async void ShowMenu()
+    {
+      var menu = _shopPanel.InstantiateAsync(_canvasToSpawn);
+      await menu.Task;
+
+      if (menu.Result.TryGetComponent(out _helper))
+      {
+        _helper.AddButtonListener(BuyFood);
+        _helper.AddFunctionality(_shop.GetFood);
+      }
+      else
+        Debug.LogError("Error with FoodShopViewHelper component.");
+    }
+
     public void BuyFood()
-    {
-      _shop.TrySellFood(_selectedFoodId);
-    }
-
-    public void SelectFood(int id)
-    {
-      _selectedFoodId = id;
-      (FoodItem, int) foodWithCost = _shop.GetFood(id);
-
-      _icon.sprite = foodWithCost.Item1.ItemIcon;
-      _foodLabel.text = foodWithCost.Item1.Name;
-      _costText.text = foodWithCost.Item2.ToString();
-    }
+      => _shop.TrySellFood(_selectedFoodId);
   }
 }

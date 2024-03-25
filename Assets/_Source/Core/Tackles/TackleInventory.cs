@@ -1,8 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
+using UnityEngine;
+using Zenject;
 
 namespace Core
 {
+  [Serializable]
   public class TackleInventory
   {
     public IReadOnlyList<ITackle> Tackles => _tackles;
@@ -10,7 +15,13 @@ namespace Core
     
     private readonly List<ITackle> _tackles = new();
     private readonly List<FishingSet> _fishingSets = new();
-
+    
+    private void Initialise(IList<ITackle> startTackles, IList<FishingSet> startSets)
+    {
+      Debug.Log("Init");
+      _tackles.AddRange(startTackles);
+      _fishingSets.AddRange(startSets);
+    }
 
     public void AddTackle(TackleModel model)
     {

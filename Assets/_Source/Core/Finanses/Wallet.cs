@@ -1,17 +1,23 @@
 using System;
+using Newtonsoft.Json;
 using UnityEngine;
 
-public class Wallet
+
+[Serializable]
+public class Wallet : ISavable
 {
-  public Wallet(int starterAmount)
+  // For serialization
+  public Wallet()
   {
-    _amountOfMoney = starterAmount;
     _onAmountOfMoneyChanged = i => { };
   }
-  
+
+  private const string WALLET_SAVE_PATH = "Wallet.json";
+
   private int _amountOfMoney;
   private Action<int> _onAmountOfMoneyChanged;
 
+  [JsonProperty]
   private int AmountOfMoney
   {
     get
@@ -23,16 +29,15 @@ public class Wallet
         Debug.LogError("Attempt to set the amount of money negative value");
         return;
       }
-      
+
       _amountOfMoney = value;
       _onAmountOfMoneyChanged.Invoke(_amountOfMoney);
     }
   }
 
-
   public void AddOnMoneyChangedHandler(Action<int> handler)
     => _onAmountOfMoneyChanged += handler;
-  
+
   public bool TryWriteOffMoney(int amountToWriteOff)
   {
     if (AmountOfMoney < amountToWriteOff)
@@ -44,4 +49,13 @@ public class Wallet
 
   public void AddMoney(int amountToAdd)
     => AmountOfMoney += amountToAdd;
+
+  public void SaveData()
+    => SavesHelper.SerializeAndSave(this, WALLET_SAVE_PATH);
+
+  public void LoadData()
+  {
+    _amountOfMoney = SavesHelper.LoadAndDeserialize<Wallet>(WALLET_SAVE_PATH).AmountOfMoney;
+    _onAmountOfMoneyChanged.Invoke(_amountOfMoney);
+  }
 }

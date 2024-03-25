@@ -1,43 +1,59 @@
 using System;
-using System.Collections;
+using System.Threading;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 using UnityEngine;
 
-public class SatiationMechanism : MonoBehaviour
+[Serializable]
+public class SatiationMechanism
 {
   public const int MAX_SATIETY_LEVEL = 13;
+  public const int STANDARD_SATIETY_LEVEL = 5;
 
-  [SerializeField] [Range(0, MAX_SATIETY_LEVEL)]
+  
+  [Range(0, MAX_SATIETY_LEVEL)] [JsonRequired]
   private int _satietyLevel;
 
-  [SerializeField] private int _satiationDecreaseTimeSeconds;
+  private int _satiationDecreaseTimeSeconds;
 
-  private Coroutine _satietyDecreaseCoroutine;
+  private Task _updateSatietyTask;
+  private CancellationTokenSource _cancellationToken;
+
 
   private Action<int> _onHungryChanged;
+
   public void AddOnHungryChangedHandler(Action<int> handler)
-    => _onHungryChanged += handler; 
+    => _onHungryChanged += handler;
+
+  public SatiationMechanism(int satiationDecreaseTimeSeconds)
+  {
+    _satiationDecreaseTimeSeconds = satiationDecreaseTimeSeconds;
+    _onHungryChanged = i => { }; 
+    _satietyLevel = STANDARD_SATIETY_LEVEL;
+  }
   
   public int SatietyLevel()
     => _satietyLevel;
-  
+
   public bool IsPlayerHungry
     => _satietyLevel == 0;
 
   public void StartHunger()
   {
-    _onHungryChanged = i => { }; 
-    _satietyDecreaseCoroutine = StartCoroutine(DecreaseSatietyLevel());
+    _cancellationToken = new CancellationTokenSource();
+    _updateSatietyTask = DecreaseSatietyLevel(_cancellationToken.Token);
   }
 
-  private IEnumerator DecreaseSatietyLevel()
+  private async Task DecreaseSatietyLevel(CancellationToken token)
   {
-    while (true)
+    while (!token.IsCancellationRequested)
     {
       if (_satietyLevel > 0)
         _satietyLevel--;
-      
+
       _onHungryChanged.Invoke(_satietyLevel);
-      yield return new WaitForSeconds(_satiationDecreaseTimeSeconds);
+      // 1000 for getting milliseconds
+      await Task.Delay(_satiationDecreaseTimeSeconds * 1000, token);
     }
   }
 
@@ -45,6 +61,5 @@ public class SatiationMechanism : MonoBehaviour
   {
     _satietyLevel += satietyUnits;
     _onHungryChanged.Invoke(_satietyLevel);
-
   }
 }

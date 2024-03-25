@@ -1,14 +1,31 @@
 using Core;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using Zenject;
 
 public class FoodInventoryView : MonoBehaviour
 {
-  [Inject] private FoodInventory _inventory;
-  [SerializeField] private RectTransform _inventoryPanel;
-  [SerializeField] private RectTransform _inventoryContentPanel;
-
+  private FoodInventory _inventory;
+  [SerializeField] private AssetReference _inventoryPanel;
   [SerializeField] private GameObject _inventoryItemPrefab;
+  [SerializeField] private Transform _canvasToSpawn;
+  
+  private RectTransform _inventoryContentPanel;
+
+  [Inject]
+  public void Initialize(FoodInventory inventory)
+  {
+    _inventory = inventory;
+  }
+
+  public async void ShowMenu()
+  {
+    var menu = _inventoryPanel.InstantiateAsync(_canvasToSpawn);
+    await menu.Task;
+    InventoryViewHelper deleter = menu.Result.GetComponent<InventoryViewHelper>();
+    _inventoryContentPanel = deleter.GetContent();
+    RedrawCells();
+  }
   
   public void RedrawCells()
   {
@@ -26,8 +43,8 @@ public class FoodInventoryView : MonoBehaviour
   }
 
   public void EatItem(int itemId)
-  { 
+  {
     _inventory.EatItem(itemId);
     RedrawCells();
-  } 
+  }
 }

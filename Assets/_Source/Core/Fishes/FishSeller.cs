@@ -6,10 +6,17 @@ namespace Core
 {
   public class FishSeller
   {
-    [Inject] private FishInventory _inventory;
-    [Inject] private Wallet _wallet;
+    private FishInventory _inventory;
+    private Wallet _wallet;
 
     // private List<IFishDeal> _deals;
+
+    [Inject]
+    public void Initialise(FishInventory inventory, Wallet wallet)
+    {
+      _inventory = inventory;
+      _wallet = wallet;
+    }
 
     private void SellAllFish()
     {
@@ -20,10 +27,10 @@ namespace Core
     private void SellBigFish()
     {
       var fishesToSell = _inventory.GetFishes()
-        .Where(fish => fish.Weight >= fish.Genus.MinScoringWeight).ToList(); 
+        .Where(fish => fish.Weight >= fish.Genus.MinScoringWeight).ToList();
       SellFish(fishesToSell, 1000 * fishesToSell.Count);
     }
-    
+
     public void SellFishByDeal(int idOfDeal)
     {
       if (idOfDeal == -2)

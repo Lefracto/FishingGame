@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Id>k__BackingField: 0
   <Visual>k__BackingField:
-    <Name>k__BackingField: 
-    <Icon>k__BackingField: {fileID: 0}
-    <Description>k__BackingField: 
-  <MaxWeight>k__BackingField: 0
+    <Name>k__BackingField: Busel Lite 500
+    <Icon>k__BackingField: {fileID: 21300000, guid: c7997150469bca445bf8c534baef8e86, type: 3}
+    <Description>k__BackingField: Busel.Description
+  <MaxWeight>k__BackingField: 3

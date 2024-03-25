@@ -1,9 +1,11 @@
 using UnityEngine;
 using System;
-using System.Collections;
+using System.Threading;
+using System.Threading.Tasks;
 using Core;
 using TMPro;
 using Unity.VisualScripting;
+using Zenject;
 
 public class GameClock : MonoBehaviour
 {
@@ -12,25 +14,35 @@ public class GameClock : MonoBehaviour
   [SerializeField] private int _deltaUpdateMinutes;
   [SerializeField] private int _deltaUpdateHours;
 
-  [Space(15)] [SerializeField] private int _updateCooldown;
+  [Space(15)] 
+  [SerializeField] 
+  private int _updateCooldown;
 
   private Action<DayOfWeek> _onDayChanged;
   private Action _onWeekChanged;
   private Action _onTimeChanged;
 
-  private Coroutine _timeUpdateCoroutine;
+  private Task _updateTimeTask;
+  private CancellationTokenSource _cancellationTimeToken;
 
   [Space(15)] [SerializeField] private TMP_Text _timeText;
   [SerializeField] private TMP_Text _dayOfWeekText;
+  
+  public void Initialise(GameTime startTime)
+  {
+    _currentTime = startTime;
+    _onTimeChanged = UpdateTimeText;
+    _onDayChanged = UpdateWeekDayText;
+    _onWeekChanged = UpdateTimeText;
+    StartGameTime();
+  }
 
   private void Start()
   {
     _currentTime = new GameTime();
-
     _onTimeChanged = UpdateTimeText;
     _onDayChanged = UpdateWeekDayText;
     _onWeekChanged = UpdateTimeText;
-
     StartGameTime();
   }
 
@@ -52,21 +64,30 @@ public class GameClock : MonoBehaviour
     => _onTimeChanged += handler;
 
   private void StartGameTime()
-    => _timeUpdateCoroutine = StartCoroutine(UpdateTime());
+  {
+    _cancellationTimeToken = new CancellationTokenSource();
+    _updateTimeTask = UpdateTime(_cancellationTimeToken.Token);
+  }
 
   public void StopGameTime()
-    => StopCoroutine(_timeUpdateCoroutine);
-
-  private IEnumerator UpdateTime()
   {
-    while (true)
+    _cancellationTimeToken.Cancel();
+    
+    // Only for developing
+    Debug.Log(_updateTimeTask.Status);
+  }
+
+  private async Task UpdateTime(CancellationToken token)
+  {
+    while (!token.IsCancellationRequested)
     {
-      yield return new WaitForSecondsRealtime(_updateCooldown);
+      // 1000 for getting milliseconds
+      await Task.Delay(_updateCooldown * 1000, token);
       bool isDayChanged = false;
       _currentTime.AddHours(_deltaUpdateHours, ref isDayChanged);
       _currentTime.AddMinutes(_deltaUpdateMinutes, ref isDayChanged);
       _onTimeChanged.Invoke();
-      
+
       if (!isDayChanged)
         continue;
 
@@ -74,7 +95,6 @@ public class GameClock : MonoBehaviour
 
       if (_currentTime.DayOfWeek == DayOfWeek.Monday)
         _onWeekChanged.Invoke();
-
     }
   }
 
