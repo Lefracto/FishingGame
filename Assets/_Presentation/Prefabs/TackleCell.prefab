@@ -229,6 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tackleLabel: {fileID: 1029688495119676372}
   _tackleShortInfo: {fileID: 6059012668863602277}
+  _buyButton: {fileID: 4314109242615532185}
 --- !u!114 &4314109242615532185
 MonoBehaviour:
   m_ObjectHideFlags: 0

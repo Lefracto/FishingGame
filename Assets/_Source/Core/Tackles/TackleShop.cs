@@ -4,14 +4,14 @@ using Zenject;
 
 namespace Core
 {
-  public class TackleShop 
+  public class TackleShop
   {
     private TackleInventory _inventory;
     private List<TackleModel> _models;
     private string _configPath;
     private Wallet _wallet;
     private CostsContainer _costsContainer;
-    
+
     [Inject]
     public void Initialize(Wallet wallet, TackleInventory inventory, List<TackleModel> models,
       CostsContainer container)
@@ -21,9 +21,14 @@ namespace Core
       _models = models;
       _costsContainer = container;
     }
-    
-    public List<TackleModel> GetModelsByType(TackleType type)
-      => _models.FindAll(model => model.GetTackleType() == type);
+
+    public List<(TackleModel, int)> GetModelsWithCostByType(TackleType type)
+    {
+      var models = _models.FindAll(model => model.GetTackleType() == type);
+      List<(TackleModel, int)> modelsWithCost = new();
+      models.ForEach(x => modelsWithCost.Add((x, _costsContainer.Costs[x.Id])));
+      return modelsWithCost;
+    }
 
     public bool TrySellTackle(int modelId)
     {

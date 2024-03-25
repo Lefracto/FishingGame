@@ -13,7 +13,6 @@ namespace Presentation.Views
     [SerializeField] private Transform _canvasToSpawn;
     
     private TackleShopPanel _panel;
-    private TackleType _displayedType;
     private int _currentTackleId;
     
     [Inject]
@@ -27,10 +26,14 @@ namespace Presentation.Views
       if (menu.Result.TryGetComponent(out _panel))
       {
         _panel = menu.Result.GetComponent<TackleShopPanel>();
-        _panel.AddCallDisplayTacklesOfTypeListener(_shop.GetModelsByType);
+        _panel.AddCallDisplayTacklesOfTypeListener(_shop.GetModelsWithCostByType);
+        _panel.AddOnBuyHandler(BuyTackle);
       }
       else
         Debug.LogError("Error with InventoryViewHelper component.");
     }
+
+    private void BuyTackle(int id)
+      => _shop.TrySellTackle(id);
   }
 }
