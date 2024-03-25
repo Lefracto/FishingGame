@@ -11,7 +11,7 @@ public class FishInventoryView : MonoBehaviour
   [SerializeField] private Transform _canvasToSpawn;
 
   private Transform _content;
-  private FishInventoryViewHelper _helper;
+  private FishInventoryPanel _helper;
 
   [Space(30)] public FishGenus Genus;
   [Space(30)] public FishGenus Genus2;
@@ -32,11 +32,11 @@ public class FishInventoryView : MonoBehaviour
     await handle.Task;
     GameObject gameObjectPrefab = handle.Result;
     GameObject menu = Instantiate(gameObjectPrefab, _canvasToSpawn);
-    InventoryViewHelper deleter = menu.GetComponent<InventoryViewHelper>();
+    InventoryPanel deleter = menu.GetComponent<InventoryPanel>();
     _content = deleter.GetContent();
     Addressables.Release(handle);
 
-    _helper = menu.GetComponent<FishInventoryViewHelper>();
+    _helper = menu.GetComponent<FishInventoryPanel>();
     RedrawCells();
   }
 

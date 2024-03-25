@@ -984,10 +984,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4310588681f434e8f4bae3da7dfda3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sellPositions:
-  - {fileID: 11400000, guid: 0d092da2118672449baf8127aad4d0af, type: 2}
+  _sellFoodPositions:
   - {fileID: 11400000, guid: 56e530dda693eb944b535a05e4ad7dad, type: 2}
+  - {fileID: 11400000, guid: 0d092da2118672449baf8127aad4d0af, type: 2}
+  _sellTacklePositions:
+  - {fileID: 11400000, guid: d3062253513e78c4eab249164be62dda, type: 2}
   _foodCosts: {fileID: 4900000, guid: e42b4eddcff416e429df111b19b16c99, type: 3}
+  _tackleCosts: {fileID: 4900000, guid: 260588172b53e13498f05da1daca5f17, type: 3}
 --- !u!4 &337598095
 Transform:
   m_ObjectHideFlags: 0
@@ -1012,7 +1015,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 343348807}
-  - component: {fileID: 343348808}
   m_Layer: 0
   m_Name: GroundBaitInventory
   m_TagString: Untagged
@@ -1035,19 +1037,6 @@ Transform:
   m_Father: {fileID: 462052237}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &343348808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343348806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44d20fc6e3446f982bd733669ca2c2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inventoryPanel: {fileID: 0}
 --- !u!1 &345407407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,6 +1495,134 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380051803}
   m_CullTransparentMesh: 1
+--- !u!1 &384414139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 384414140}
+  - component: {fileID: 384414141}
+  m_Layer: 0
+  m_Name: AudioSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &384414140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384414139}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1736583801}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &384414141
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384414139}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7b52af10ebb862b4cb7d3ba8f03a1b62, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.8
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &414930032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,7 +1745,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 468871313}
-  - component: {fileID: 468871312}
   m_Layer: 0
   m_Name: GroundBaits
   m_TagString: Untagged
@@ -1636,19 +1752,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &468871312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468871311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44d20fc6e3446f982bd733669ca2c2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inventoryPanel: {fileID: 0}
 --- !u!4 &468871313
 Transform:
   m_ObjectHideFlags: 0
@@ -1846,7 +1949,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 542270463}
-  - component: {fileID: 542270462}
   m_Layer: 0
   m_Name: TouristShop
   m_TagString: Untagged
@@ -1854,19 +1956,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &542270462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 542270461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44d20fc6e3446f982bd733669ca2c2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inventoryPanel: {fileID: 0}
 --- !u!4 &542270463
 Transform:
   m_ObjectHideFlags: 0
@@ -2397,7 +2486,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 715124046}
-  - component: {fileID: 715124047}
   m_Layer: 0
   m_Name: Stats
   m_TagString: Untagged
@@ -2420,19 +2508,6 @@ Transform:
   m_Father: {fileID: 196816290}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &715124047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 715124045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44d20fc6e3446f982bd733669ca2c2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inventoryPanel: {fileID: 0}
 --- !u!1 &798351986
 GameObject:
   m_ObjectHideFlags: 0
@@ -2443,7 +2518,6 @@ GameObject:
   m_Component:
   - component: {fileID: 798351987}
   - component: {fileID: 798351988}
-  - component: {fileID: 798351989}
   m_Layer: 0
   m_Name: FoodInventory
   m_TagString: Untagged
@@ -2485,19 +2559,6 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   _inventoryItemPrefab: {fileID: 4894687017880865561, guid: f285ef84e49a2bf498871e07681a087c, type: 3}
   _canvasToSpawn: {fileID: 832431256}
---- !u!114 &798351989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798351986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44d20fc6e3446f982bd733669ca2c2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inventoryPanel: {fileID: 0}
 --- !u!1 &808803420
 GameObject:
   m_ObjectHideFlags: 0
@@ -2843,7 +2904,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1904945141}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Presentation.WindowVisibilityController, Assembly-CSharp
         m_MethodName: ShowPanel
         m_Mode: 1
@@ -2976,9 +3037,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1616351768}
-        m_TargetAssemblyTypeName: Presentation.WindowVisibilityController, Assembly-CSharp
-        m_MethodName: ShowPanel
+      - m_Target: {fileID: 1616351770}
+        m_TargetAssemblyTypeName: Presentation.Views.TackleShopView, Assembly-CSharp
+        m_MethodName: ShowMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3185,7 +3246,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 715124047}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Presentation.WindowVisibilityController, Assembly-CSharp
         m_MethodName: ShowPanel
         m_Mode: 1
@@ -3453,7 +3514,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1917329464}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Presentation.WindowVisibilityController, Assembly-CSharp
         m_MethodName: ShowPanel
         m_Mode: 1
@@ -3512,7 +3573,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1110657613}
-  - component: {fileID: 1110657614}
   m_Layer: 0
   m_Name: Settings
   m_TagString: Untagged
@@ -3535,19 +3595,6 @@ Transform:
   m_Father: {fileID: 196816290}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1110657614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110657612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44d20fc6e3446f982bd733669ca2c2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inventoryPanel: {fileID: 0}
 --- !u!1 &1140807052
 GameObject:
   m_ObjectHideFlags: 0
@@ -3633,7 +3680,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1267029202}
-  - component: {fileID: 1267029203}
   m_Layer: 0
   m_Name: LocalMaps
   m_TagString: Untagged
@@ -3656,19 +3702,6 @@ Transform:
   m_Father: {fileID: 196816290}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1267029203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1267029201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44d20fc6e3446f982bd733669ca2c2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inventoryPanel: {fileID: 0}
 --- !u!1 &1297986777
 GameObject:
   m_ObjectHideFlags: 0
@@ -4142,7 +4175,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1267029203}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Presentation.WindowVisibilityController, Assembly-CSharp
         m_MethodName: ShowPanel
         m_Mode: 1
@@ -4830,7 +4863,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1110657614}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Presentation.WindowVisibilityController, Assembly-CSharp
         m_MethodName: ShowPanel
         m_Mode: 1
@@ -4889,7 +4922,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1616351769}
-  - component: {fileID: 1616351768}
+  - component: {fileID: 1616351770}
   m_Layer: 0
   m_Name: TackleShop
   m_TagString: Untagged
@@ -4897,19 +4930,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1616351768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1616351767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44d20fc6e3446f982bd733669ca2c2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inventoryPanel: {fileID: 0}
 --- !u!4 &1616351769
 Transform:
   m_ObjectHideFlags: 0
@@ -4925,6 +4945,24 @@ Transform:
   m_Father: {fileID: 2051524692}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1616351770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616351767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d2648b995b4ab5a720846ad96c2c66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shopPanel:
+    m_AssetGUID: 8660a9d607ce6d74288c19b1d3c94f48
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  _canvasToSpawn: {fileID: 574236583}
 --- !u!1 &1617547279
 GameObject:
   m_ObjectHideFlags: 0
@@ -5071,19 +5109,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1709080948}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 542270462}
-        m_TargetAssemblyTypeName: Presentation.WindowVisibilityController, Assembly-CSharp
-        m_MethodName: ShowPanel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1709080948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5158,6 +5184,7 @@ Transform:
   - {fileID: 174228597}
   - {fileID: 337598095}
   - {fileID: 1617547281}
+  - {fileID: 384414140}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5379,7 +5406,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1872562743}
-  - component: {fileID: 1872562742}
   - component: {fileID: 1872562744}
   m_Layer: 0
   m_Name: FishInventory
@@ -5388,19 +5414,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1872562742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1872562741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44d20fc6e3446f982bd733669ca2c2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inventoryPanel: {fileID: 0}
 --- !u!4 &1872562743
 Transform:
   m_ObjectHideFlags: 0
@@ -5446,7 +5459,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1904945140}
-  - component: {fileID: 1904945141}
   - component: {fileID: 1904945142}
   m_Layer: 0
   m_Name: TackleInventory
@@ -5470,19 +5482,6 @@ Transform:
   m_Father: {fileID: 462052237}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1904945141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1904945139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44d20fc6e3446f982bd733669ca2c2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inventoryPanel: {fileID: 0}
 --- !u!114 &1904945142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5506,7 +5505,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1917329465}
-  - component: {fileID: 1917329464}
   m_Layer: 0
   m_Name: Baits
   m_TagString: Untagged
@@ -5514,19 +5512,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1917329464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917329463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44d20fc6e3446f982bd733669ca2c2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inventoryPanel: {fileID: 0}
 --- !u!4 &1917329465
 Transform:
   m_ObjectHideFlags: 0
@@ -5758,7 +5743,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 468871312}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Presentation.WindowVisibilityController, Assembly-CSharp
         m_MethodName: ShowPanel
         m_Mode: 1

@@ -22,7 +22,7 @@ namespace Presentation.Views
     {
       var menu = _inventoryPanel.InstantiateAsync(_canvasToSpawn);
       await menu.Task;
-      if (menu.Result.TryGetComponent(out FishSellerViewHelper helper))
+      if (menu.Result.TryGetComponent(out FishSellerPanel helper))
         helper.InstallSellFishAction(SellFish);
       else
         Debug.LogError("Error with FishSellerViewHelper component.");

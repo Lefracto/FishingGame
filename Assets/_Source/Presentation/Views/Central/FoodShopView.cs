@@ -9,7 +9,7 @@ namespace Presentation.Views
   {
     private FoodShop _shop;
     private int _selectedFoodId;
-    private FoodShopViewHelper _helper;
+    private FoodShopPanel _helper;
 
     [SerializeField] private AssetReference _shopPanel;
     [SerializeField] private Transform _canvasToSpawn;

@@ -22,9 +22,14 @@ public class FoodInventoryView : MonoBehaviour
   {
     var menu = _inventoryPanel.InstantiateAsync(_canvasToSpawn);
     await menu.Task;
-    InventoryViewHelper deleter = menu.Result.GetComponent<InventoryViewHelper>();
-    _inventoryContentPanel = deleter.GetContent();
-    RedrawCells();
+    if (menu.Result.TryGetComponent(out InventoryPanel helper))
+    {
+      helper = menu.Result.GetComponent<InventoryPanel>();
+      _inventoryContentPanel = helper.GetContent();
+      RedrawCells();
+    }
+    else
+      Debug.LogError("Error with InventoryViewHelper component.");
   }
   
   public void RedrawCells()

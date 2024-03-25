@@ -1,7 +1,6 @@
 ﻿using Core;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.AddressableAssets;
 using Zenject;
 
 namespace Presentation.Views
@@ -10,21 +9,28 @@ namespace Presentation.Views
   {
     private TackleShop _shop;
 
-    [SerializeField] private Image _tackleImage;
-    [SerializeField] private TMP_Text _tackleLabel;
-    [SerializeField] private TMP_Text _tackleDescription;
-    [SerializeField] private TMP_Text _tackleCost;
-
-    [SerializeField] private Button _buyButton;
-
-    public void ShowTackleCategory(TackleType typeToShow)
+    [SerializeField] private AssetReference _shopPanel;
+    [SerializeField] private Transform _canvasToSpawn;
+    
+    private TackleShopPanel _panel;
+    private TackleType _displayedType;
+    private int _currentTackleId;
+    
+    [Inject]
+    public void Initialize(TackleShop shop)
+      => _shop = shop;
+    
+    public async void ShowMenu()
     {
-      
-    }
-
-    public void SelectTackle(int id)
-    {
-      
+      var menu = _shopPanel.InstantiateAsync(_canvasToSpawn);
+      await menu.Task;
+      if (menu.Result.TryGetComponent(out _panel))
+      {
+        _panel = menu.Result.GetComponent<TackleShopPanel>();
+        _panel.AddCallDisplayTacklesOfTypeListener(_shop.GetModelsByType);
+      }
+      else
+        Debug.LogError("Error with InventoryViewHelper component.");
     }
   }
 }

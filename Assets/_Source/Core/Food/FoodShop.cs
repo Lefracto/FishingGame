@@ -9,9 +9,10 @@ namespace Core
   public class FoodShop : ISavable
   {
     private const string FOOD_INVENTORY_SAVE_PATH = "FoodInventory.json";
-    [Space(15)] private Wallet _wallet;
-    private FoodInventory _inventory;
+    
     private List<FoodItem> _sellPositions;
+    private FoodInventory _inventory;
+    private Wallet _wallet;
 
     private CostsContainer _container;
 
