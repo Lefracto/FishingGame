@@ -7,7 +7,7 @@ using UnityEngine;
 [Serializable]
 public class SatiationMechanism
 {
-  public const int MAX_SATIETY_LEVEL = 13;
+  public const int MAX_SATIETY_LEVEL = 14;
   public const int STANDARD_SATIETY_LEVEL = 5;
 
   
