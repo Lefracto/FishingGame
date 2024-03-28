@@ -8,6 +8,10 @@ namespace Core.Locations
 
   public class FishingSpot : ScriptableObject
   {
+    [SerializeField]
+    private int _id;
+    public int GetId => _id;
+    
     private const short DEPTH_GRID_WIDTH = 28;
     private const short DEPTH_GRID_HEIGHT = 28;
 

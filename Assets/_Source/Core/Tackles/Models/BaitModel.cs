@@ -2,12 +2,12 @@
 
 namespace Core
 {
-  [CreateAssetMenu(fileName = "Models\\Bait Model")]
+  [CreateAssetMenu(menuName = "Tackle Models/Bait", order = 5)]
   public class BaitModel : TackleModel
   {
     public override TackleType GetTackleType()
       => TackleType.Bait;
-    
+
     public int CountInPack { get; set; }
   }
 }

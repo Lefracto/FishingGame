@@ -1,6 +1,16 @@
-Key,English,German,Russian
-Menu.Example.Title,Menu,Menü,Меню
-Menu.Example.NewGame,New game,Neues Spiel,Новая игра
-Menu.Example.Continue,Continue,Fortsetzen,Продолжить
-Menu.Example.Settings,Settings,Einstellungen,Настройки
-Menu.Example.Review,Write a review,Eine Rezension schreiben,Написать отзыв
+Key,English,Russian
+FoodLabel,ЕЖА,ЕДА
+Settings,НАЛАДЫ,НАСТРОЙКИ
+SaveGame,Захаваць гульню,Сохранить игру
+Sound,Гук,Звук
+Tackles,АСНАДА,ОСНАСТКА
+Rods,Вуды,Удочки
+Reels,Катушкі,Катушки
+Lines,Лескі,Лески
+Hooks,Гаплікі,Крючки
+Groundbait,ПРЫКОРМКА,ПРИКОРМКА
+Profile,ПРОФІЛЬ,ПРОФИЛЬ
+FoodShop,КРАМА ЕЖЫ,МАГАЗИН ЕДЫ
+Buy,Набыць,Купить
+Detach,Зняць,Снять
+TakeOut,Вынуць,Достать

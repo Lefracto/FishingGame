@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fab9901984b492eb134d367182df86e, type: 3}
+  m_Name: StandartLocation
+  m_EditorClassIdentifier: 
+  SpotBackGround: {fileID: 0}
+  Spots:
+  - {fileID: 11400000, guid: f5b744317bd1c634590309ccf6718745, type: 2}

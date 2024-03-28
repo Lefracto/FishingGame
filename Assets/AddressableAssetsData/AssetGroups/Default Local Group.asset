@@ -27,11 +27,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f285ef84e49a2bf498871e07681a087c
-    m_Address: Assets/_Presentation/Prefabs/FoodItemPanel.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2895962a2bb14c142be5c1d80424f636
     m_Address: Assets/_Presentation/Prefabs/Menus/FoodShopPanel.prefab
     m_ReadOnly: 0
@@ -44,6 +39,31 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8660a9d607ce6d74288c19b1d3c94f48
     m_Address: Assets/_Presentation/Prefabs/Menus/Central/TackleShopPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf664fc568215df4e883571576c6085f
+    m_Address: Assets/_Presentation/Prefabs/Menus/Right/MapsPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1cd738b3c6420e4d8374cc4328c65cd
+    m_Address: Assets/_Presentation/Prefabs/Menus/Lower/TacklesPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b014cf87ab97d346a402da07085b0bd
+    m_Address: Assets/_Presentation/Prefabs/Menus/Right/SettingsPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 564c144469ffd40478d855272324450f
+    m_Address: Assets/_Presentation/Prefabs/Menus/Right/StatsPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ad26595ad2a3a24aaae45028ff32a10
+    m_Address: Assets/_Presentation/Prefabs/Menus/Lower/GroundBaitPanel.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

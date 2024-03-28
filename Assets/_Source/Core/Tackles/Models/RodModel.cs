@@ -2,7 +2,7 @@
 
 namespace Core
 {
-  [CreateAssetMenu(fileName = "RodModel")]
+  [CreateAssetMenu(menuName = "Tackle Models/Rod", order = 1)]
   public class RodModel : TackleModel
   {
     public override TackleType GetTackleType()
