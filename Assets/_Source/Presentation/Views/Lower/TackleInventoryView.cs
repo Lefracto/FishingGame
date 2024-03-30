@@ -15,7 +15,9 @@ public class TackleInventoryView : MonoBehaviour
   [SerializeField] private AssetReference _inventoryPanel;
 
   private TackleInventoryPanel _panel;
-
+  [SerializeField]
+  private RodOperator _operator;
+  
   [Inject]
   public void Initialize(TackleInventory inventory)
     => _inventory = inventory;
@@ -28,6 +30,7 @@ public class TackleInventoryView : MonoBehaviour
     if (menu.Result.TryGetComponent(out _panel))
     {
       _panel.Initialize(_inventory, _cellPrefab);
+      _panel.RodOperator = _operator;
     }
     else
       Debug.LogError("Error with TackleInventoryPanel component.");

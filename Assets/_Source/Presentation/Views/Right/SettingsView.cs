@@ -11,6 +11,7 @@ public class SettingsView : MonoBehaviour
   [SerializeField] private SettingsPanel _panel;
 
 
+  [SerializeField]
   private SavesLoader _loader;
 
 //  [Inject]

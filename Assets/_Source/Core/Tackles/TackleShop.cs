@@ -1,11 +1,15 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
+using System.Linq;
 using Zenject;
+
 
 namespace Core
 {
-  public class TackleShop
+  public class TackleShop : ISavable
   {
+    private const string CONFIG_FILE_NAME = "tackles.json";
+
+
     private TackleInventory _inventory;
     private List<TackleModel> _models;
     private string _configPath;
@@ -37,6 +41,19 @@ namespace Core
 
       _inventory.AddTackle(_models.Find(model => model.Id == modelId));
       return true;
+    }
+
+
+    public void SaveData()
+    {
+      var modelsId = _inventory.Tackles.Select(x => x.GetModel().Id).ToList();
+      SavesHelper.SerializeAndSave(modelsId, CONFIG_FILE_NAME);
+    }
+
+    public void LoadData()
+    {
+      var modelsId = SavesHelper.LoadAndDeserialize<List<int>>(CONFIG_FILE_NAME);
+      modelsId.ForEach(x => _inventory.AddTackle(_models.Find(model => model.Id == x)));
     }
   }
 }

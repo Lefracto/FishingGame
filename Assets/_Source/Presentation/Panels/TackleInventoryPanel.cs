@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using Core;
 using Presentation.Views.Lower.Cells;
-using TMPro;
-using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+using UnityEngine;
+using TMPro;
+using Core;
 
 namespace Presentation.Panels
 {
@@ -16,12 +16,14 @@ namespace Presentation.Panels
 
     private GameObject _cell;
     private TackleInventory _inventory;
-
+    
+    public RodOperator RodOperator { get; set; }
+    
     public void Initialize(TackleInventory inventory, GameObject cell)
     {
       _inventory = inventory;
       _cell = cell;
-
+      
       DrawInventory();
     }
 
@@ -133,6 +135,12 @@ namespace Presentation.Panels
     {
       foreach (Transform child in _contents.SelectMany(content => content.Cast<Transform>()))
         Destroy(child.gameObject);
+    }
+
+    public void RetrieveRod()
+    {
+      if (RodOperator.RetrieveRod(_inventory.GetSet(_selectedRod)))
+        DeleteMyself();
     }
   }
 }

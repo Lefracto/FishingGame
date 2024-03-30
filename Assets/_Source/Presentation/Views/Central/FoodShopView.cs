@@ -32,7 +32,10 @@ namespace Presentation.Views
         Debug.LogError("Error with FoodShopViewHelper component.");
     }
 
+    // delete it
+    public static int selectedFood;
+
     public void BuyFood()
-      => _shop.TrySellFood(_selectedFoodId);
+      => _shop.TrySellFood(selectedFood);
   }
 }

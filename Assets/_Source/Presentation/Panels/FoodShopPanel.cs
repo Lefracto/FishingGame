@@ -1,4 +1,5 @@
 using System;
+using Presentation.Views;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -24,5 +25,6 @@ public class FoodShopPanel : SimplePanel
     _foodImage.sprite = foodWithCost.Item1.ItemIcon;
     _foodLabel.text = foodWithCost.Item1.Name;
     _foodPrice.text = foodWithCost.Item2.ToString();
+    FoodShopView.selectedFood = selectedFoodId;
   }
 }

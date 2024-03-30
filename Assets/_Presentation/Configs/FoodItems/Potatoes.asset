@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Potatoes
   m_EditorClassIdentifier: 
   <Id>k__BackingField: 1
-  <Name>k__BackingField: Potatoes
-  <ItemIcon>k__BackingField: {fileID: 21300000, guid: 13fb6d0fbad9eff4e81bcc0df402aa56, type: 3}
+  <Name>k__BackingField: "\u0410\u043F\u0435\u043B\u044C\u0441\u0438\u043D\u044B"
+  <ItemIcon>k__BackingField: {fileID: 21300000, guid: 5cbf7917312fb2140800a712c898f85f, type: 3}
   <CountPortions>k__BackingField: 3
   <SatietyPerPortion>k__BackingField: 3

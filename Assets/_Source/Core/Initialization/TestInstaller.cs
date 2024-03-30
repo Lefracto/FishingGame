@@ -40,6 +40,8 @@ public class TestInstaller : MonoInstaller
     // Savable data injection
     Container.Bind<ISavable>().To<Wallet>().FromResolve();
     Container.Bind<ISavable>().To<FoodShop>().FromResolve();
+    Container.Bind<ISavable>().To<TackleShop>().FromResolve();
+
     
    // Container.Bind<SavesLoader>().AsSingle().NonLazy();
   }

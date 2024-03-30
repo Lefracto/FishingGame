@@ -8,7 +8,11 @@ public class SavesLoader : MonoBehaviour
 
   [Inject]
   public void Initialize(ISavable[] savableData)
-    => _savableData.AddRange(savableData);
+  {
+    _savableData.AddRange(savableData);
+    LoadGame();
+  }
+     
 
   public void SaveGame()
     => _savableData.ForEach(data => data.SaveData());

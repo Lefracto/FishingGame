@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fab9901984b492eb134d367182df86e, type: 3}
   m_Name: StandartLocation
   m_EditorClassIdentifier: 
-  SpotBackGround: {fileID: 0}
+  _id: 0
+  SpotBackGround: {fileID: 21300000, guid: c60a67179cd8f2d41a8dc0d75a74ab46, type: 3}
   Spots:
   - {fileID: 11400000, guid: f5b744317bd1c634590309ccf6718745, type: 2}
+  - {fileID: 11400000, guid: d747044e60d05c44bb1d712237acb03c, type: 2}
+  - {fileID: 11400000, guid: 10697ed0c9bd7524291067ad12363529, type: 2}

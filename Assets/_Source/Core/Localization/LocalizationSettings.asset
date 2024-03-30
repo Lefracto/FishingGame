@@ -16,11 +16,11 @@ MonoBehaviour:
   Sheets:
   - Name: Menu
     Id: 0
-    TextAsset: {fileID: 4900000, guid: a370c70b3c4ce554784b7f8ee706fe51, type: 3}
+    TextAsset: {fileID: 4900000, guid: cf55c05861a4d264a855e6349bef560e, type: 3}
   - Name: Settings
     Id: 331980525
-    TextAsset: {fileID: 4900000, guid: 9e915f09744b99e4eb2d3ded7f443ddc, type: 3}
+    TextAsset: {fileID: 4900000, guid: e8424441ea9d2254595fa32fa8b5fa13, type: 3}
   - Name: Tests
     Id: 1674352817
-    TextAsset: {fileID: 4900000, guid: 78955087f9a816a49851f5f94193f224, type: 3}
+    TextAsset: {fileID: 4900000, guid: 631e07fea7d9bec40a3845acd3b21ae4, type: 3}
   SaveFolder: {fileID: 102900000, guid: c392831e85f928548b8494fefd912562, type: 3}

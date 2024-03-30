@@ -15,7 +15,9 @@ namespace Core
     private readonly List<ITackle> _tackles = new();
     private readonly List<FishingSet> _fishingSets = new();
 
-
+    public List<FishingSet> GetAllSets()
+      => _fishingSets;
+    
     private List<int> _installedTacklesId = new List<int>();
 
     public List<int> InstalledTacklesId

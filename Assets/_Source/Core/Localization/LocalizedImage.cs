@@ -1,15 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using Assets.SimpleLocalization.Scripts;
-using TMPro;
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
+using System;
 
 [RequireComponent(typeof(Image))]
 public class LocalizedImage : MonoBehaviour
 {
   /// <summary>
-  /// Localize text component.
+  /// Localize image component.
   /// </summary>
   public string LocalizationKey;
 
@@ -28,6 +27,9 @@ public class LocalizedImage : MonoBehaviour
 
   private void Localize()
   {
-    GetComponent<Image>().sprite = _localizedSprites[int.Parse(LocalizationManager.Localize(LocalizationKey))];
+    if (Int32.TryParse(LocalizationManager.Localize(LocalizationKey), out int indexOfSprite))
+      GetComponent<Image>().sprite = _localizedSprites[indexOfSprite];
+    else
+      Debug.LogError("Localization key for image is not a number");
   }
 }

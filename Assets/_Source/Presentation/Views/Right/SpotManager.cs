@@ -53,7 +53,7 @@ public class SpotManager : MonoBehaviour
   private void LoadSpot(int id)
   {
     Destroy(_panel.gameObject);
-    Thread.Sleep(500);
+    Thread.Sleep(500); 
     _baseCanvas.SetActive(false);
     _spotCanvas.SetActive(true);
     _currentSpot = _location.Spots[id];
