@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Zenject;
 
@@ -49,9 +50,17 @@ namespace Core
 
     public void LoadData()
     {
-      var adoptedData = SavesHelper.LoadAndDeserialize<List<(int, int)>>(FOOD_INVENTORY_SAVE_PATH);
-      foreach ((int, int) item in adoptedData)
-        _inventory.AddItem(_sellPositions.FirstOrDefault(x => x.Id == item.Item1), item.Item2);
+      try
+      {
+        var adoptedData = SavesHelper.LoadAndDeserialize<List<(int, int)>>(FOOD_INVENTORY_SAVE_PATH);
+        foreach ((int, int) item in adoptedData)
+          _inventory.AddItem(_sellPositions.FirstOrDefault(x => x.Id == item.Item1), item.Item2);
+      }
+      catch (Exception e)
+      {
+        SaveData();
+      }
+    
     }
   }
 }

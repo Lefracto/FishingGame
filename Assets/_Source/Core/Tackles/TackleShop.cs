@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Zenject;
 
@@ -52,8 +53,15 @@ namespace Core
 
     public void LoadData()
     {
-      var modelsId = SavesHelper.LoadAndDeserialize<List<int>>(CONFIG_FILE_NAME);
-      modelsId.ForEach(x => _inventory.AddTackle(_models.Find(model => model.Id == x)));
+      try
+      {
+        var modelsId = SavesHelper.LoadAndDeserialize<List<int>>(CONFIG_FILE_NAME);
+        modelsId.ForEach(x => _inventory.AddTackle(_models.Find(model => model.Id == x)));
+      }
+      catch (Exception e)
+      {
+        SaveData();
+      }
     }
   }
 }
