@@ -67,6 +67,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 955d18d798c50dd40a7ee86c5c3cdcbb
+    m_Address: Assets/_Presentation/Prefabs/BaitsPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: bbaad43eff8c6654896c5a3ea82bdc8e, type: 2}
   m_SchemaSet:

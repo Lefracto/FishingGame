@@ -7,7 +7,7 @@ namespace Core
   {
     public override TackleType GetTackleType()
       => TackleType.GroundBait;
-    
-    public int CountInPack { get; set; } 
+
+    public int CountInPack;
   }
 }

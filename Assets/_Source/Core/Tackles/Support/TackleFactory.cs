@@ -13,7 +13,8 @@ namespace Core
       { TackleType.Reel, model => new Reel(model, _lastTackleId++) },
       { TackleType.Line, model => new Line(model, _lastTackleId++) },
       { TackleType.Hook, model => new Hook(model, _lastTackleId++) },
-      { TackleType.Bait, model => new Bait(model, _lastTackleId++) }
+      { TackleType.Bait, model => new Bait(model, _lastTackleId++) },
+      { TackleType.GroundBait, model => new GroundBait(model, _lastTackleId++) }
     };
 
     public static ITackle CreateTackle(TackleModel model)

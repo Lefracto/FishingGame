@@ -9,8 +9,8 @@ namespace Core
   {
     private const int MINUTES_IN_HOUR = 60;
     private const int HOURS_IN_DAY = 24;
-    private int Hours { get; set; }
-    private int Minutes { get; set; }
+    public int Hours { get; set; }
+    public int Minutes { get; set; }
 
     private int _dayNumber;
 

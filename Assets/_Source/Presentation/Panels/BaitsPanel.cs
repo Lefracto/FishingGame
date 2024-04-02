@@ -5,7 +5,7 @@ using Core;
 
 namespace Presentation.Panels
 {
-  public class BaitsPanel : MonoBehaviour
+  public class BaitsPanel : InventoryPanel
   {
     [SerializeField] private GameObject _tackleCellPrefab;
     [SerializeField] private Transform _content;

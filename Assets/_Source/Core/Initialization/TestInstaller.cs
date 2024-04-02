@@ -19,7 +19,7 @@ public class TestInstaller : MonoInstaller
     Container.Bind<Wallet>().AsSingle().NonLazy();
     Container.Bind<FishInventory>().AsSingle().NonLazy();
 
-    Container.Bind<int>().FromInstance(3).WhenInjectedInto<SatiationMechanism>();
+    Container.Bind<int>().FromInstance(30).WhenInjectedInto<SatiationMechanism>();
     Container.Bind<SatiationMechanism>().AsSingle().NonLazy();
 
     Container.Bind<FoodInventory>().AsSingle().NonLazy();

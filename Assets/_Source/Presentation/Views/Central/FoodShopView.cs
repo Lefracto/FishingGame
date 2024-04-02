@@ -11,13 +11,13 @@ namespace Presentation.Views
     private int _selectedFoodId;
     private FoodShopPanel _helper;
 
-    [SerializeField] private AssetReference _shopPanel;
     [SerializeField] private Transform _canvasToSpawn;
 
     [Inject]
     public void Initialize(FoodShop shop)
       => _shop = shop;
 
+    [SerializeField] private AssetReference _shopPanel;
     public async void ShowMenu()
     {
       var menu = _shopPanel.InstantiateAsync(_canvasToSpawn);

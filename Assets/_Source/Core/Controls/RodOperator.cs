@@ -1,4 +1,5 @@
 ﻿using Presentation.Panels;
+using Presentation.Views.Lower;
 using UnityEngine;
 
 namespace Core
@@ -24,6 +25,7 @@ namespace Core
       }
 
       Panel.IsAllowedToSpawn = true;
+      BaitSelectView.IsBase = false;
       return true;
     }
 

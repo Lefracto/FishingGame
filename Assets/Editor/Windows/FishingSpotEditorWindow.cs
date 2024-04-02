@@ -11,49 +11,49 @@ namespace Editor.Windows
   {
     //[Header("Tech Setting")]
     private FishingSpot _fishingSpot;
-    private Vector2 _imageDisplaySize = new (256, 725); // Image Scale = _imageDisplaySize.y
-    
-    private Vector2Int _gridSize = new (28, 28);
-  
-   // private short[,] _gridNumbers; 
-    private int _brushSize = 1; 
+    private Vector2 _imageDisplaySize = new(256, 725); // Image Scale = _imageDisplaySize.y
+
+    private Vector2Int _gridSize = new(28, 28);
+
+    // private short[,] _gridNumbers; 
+    private int _brushSize = 1;
     private short _currentDepth = 14;
 
     private bool _showBrush = true;
     private bool _showToolsPanel = true;
     private bool _paintingMode = true;
 
-  
+
     [MenuItem("Window/Fishing Spot Editor")]
     public static void ShowWindow()
     {
       GetWindow<FishingSpotEditorWindow>("Fishing Spot Editor");
     }
 
-    private void OnEnable()
-    {
-      InitializeGridState();
-    }
-
-    private void InitializeGridState()
-    {
-      //_fishingSpot = new short[_gridSize.x, _gridSize.y];
-    }
+    private SerializedObject obj;
 
     private void OnGUI()
     {
-      EditorGUILayout.BeginHorizontal(); 
+      if (_fishingSpot != null)
+      {
+        obj = new SerializedObject(_fishingSpot);
+      }
+
+      obj?.Update();
+
+      EditorGUILayout.BeginHorizontal();
 
       if (_showToolsPanel)
       {
-        EditorGUILayout.BeginVertical(GUILayout.Width(250)); 
+        EditorGUILayout.BeginVertical(GUILayout.Width(250));
         GUILayout.Label("Fishing Spot Editor", EditorStyles.boldLabel);
         GUILayout.Space(4);
         GUILayout.Label("Functional Settings", EditorStyles.boldLabel);
 
-        _fishingSpot = (FishingSpot)EditorGUILayout.ObjectField("Fishing Spot", _fishingSpot, typeof(FishingSpot), false);
+        _fishingSpot =
+          (FishingSpot)EditorGUILayout.ObjectField("Fishing Spot", _fishingSpot, typeof(FishingSpot), false);
         _imageDisplaySize.y = EditorGUILayout.FloatField("Image Display Scale", _imageDisplaySize.y);
-        
+
         GUILayout.Space(5);
 
         GUILayout.Label("Fishing Spot Editor", EditorStyles.boldLabel);
@@ -69,8 +69,8 @@ namespace Editor.Windows
         {
           GenerateDepthGrid();
         }
-        
-        EditorGUILayout.EndVertical(); 
+
+        EditorGUILayout.EndVertical();
         GUILayout.Box("", GUILayout.ExpandHeight(true), GUILayout.Width(2));
       }
 
@@ -78,10 +78,10 @@ namespace Editor.Windows
 
       if (GUILayout.Button(_showToolsPanel ? "<<" : ">>", GUILayout.Width(30), GUILayout.Height(30)))
         _showToolsPanel = !_showToolsPanel;
-    
 
-      
-      EditorGUILayout.BeginVertical(GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true)); // Область рисования с расширением по ширине и высоте
+
+      EditorGUILayout.BeginVertical(GUILayout.ExpandWidth(true),
+        GUILayout.ExpandHeight(true)); // Область рисования с расширением по ширине и высоте
 
       if (_fishingSpot != null && _fishingSpot.SpotBackGround != null)
       {
@@ -91,18 +91,19 @@ namespace Editor.Windows
         GUI.DrawTexture(spriteRect, _fishingSpot.SpotBackGround.texture, ScaleMode.ScaleToFit);
 
         DrawGrid(spriteRect);
-        
-        if(_showBrush)
+
+        if (_showBrush)
           DrawBrushIndicator(spriteRect);
-        
-        
       }
-      
-      
-      
 
       EditorGUILayout.EndVertical();
       EditorGUILayout.EndHorizontal();
+
+      if (_fishingSpot != null)
+      {
+        EditorUtility.SetDirty(_fishingSpot);
+      }
+      obj?.ApplyModifiedProperties();
     }
 
     private void DrawGrid(Rect spriteRect)
@@ -126,7 +127,6 @@ namespace Editor.Windows
       {
         for (int y = 0; y < _gridSize.y; y++)
         {
-
           Rect cellRect = new Rect(spriteRect.x + offsetX + x * cellWidth,
             spriteRect.y + offsetY + y * cellHeight,
             cellWidth, cellHeight);
@@ -143,14 +143,13 @@ namespace Editor.Windows
           if (_fishingSpot[x, y] != -1)
           {
             Handles.DrawSolidRectangleWithOutline(cellRect, new Color(0, 0, 0, 0), Color.gray);
-            GUIStyle numberStyle = new (GUI.skin.label) { alignment = TextAnchor.MiddleCenter };
+            GUIStyle numberStyle = new(GUI.skin.label) { alignment = TextAnchor.MiddleCenter };
             GUI.Label(cellRect, _fishingSpot[x, y].ToString(), numberStyle);
-
-
           }
         }
       }
     }
+
     private void GenerateDepthGrid()
     {
       for (int x = 0; x < _gridSize.x; x++)
@@ -168,13 +167,8 @@ namespace Editor.Windows
       Repaint();
     }
 
-    // private int _minDepth = 10; 
-    //private int _maxDepth = 500;
-    //private int _depthVariation = 20;
-
     private short CalculateDepth(int x, int y)
     {
-
       return (short)new Random().Next(0, 500);
     }
 
@@ -184,20 +178,22 @@ namespace Editor.Windows
       int brushRadius = _brushSize / 2;
       for (int x = Mathf.Max(centerX - brushRadius, 0); x <= Mathf.Min(centerX + brushRadius, _gridSize.x - 1); x++)
       {
-        for (int y = Mathf.Max(centerY - brushRadius, 0);
-             y <= Mathf.Min(centerY + brushRadius, _gridSize.y - 1);
-             y++)
+        for (int y = Mathf.Max(centerY - brushRadius, 0); y <= Mathf.Min(centerY + brushRadius, _gridSize.y - 1); y++)
         {
-          if (!(Vector2.Distance(new Vector2(x, y), new Vector2(centerX, centerY)) <= brushRadius)) 
+          if (!(Vector2.Distance(new Vector2(x, y), new Vector2(centerX, centerY)) <= brushRadius))
             continue;
-        
+
           if (_paintingMode)
             _fishingSpot[x, y] = _currentDepth;
           else
             _fishingSpot[x, y] = -1;
         }
       }
+
+      EditorUtility.SetDirty(_fishingSpot); // Убедитесь, что это вызывается после изменений
+      // Не нужно вызывать AssetDatabase.SaveAssets здесь, это может замедлить редактор
     }
+
 
     private void DrawBrushIndicator(Rect spriteRect)
     {
@@ -219,6 +215,24 @@ namespace Editor.Windows
       DrawEllipse(mousePosition, ellipseWidth, ellipseHeight, Color.white);
     }
 
+    void OnDestroy()
+    {
+      if (_fishingSpot == null) return;
+
+      EditorUtility.SetDirty(_fishingSpot);
+      AssetDatabase.SaveAssets(); // Это помогает убедиться, что все изменения сохраняются
+      AssetDatabase.Refresh();
+    }
+
+    void OnDisable()
+    {
+      if (_fishingSpot == null) return;
+
+      EditorUtility.SetDirty(_fishingSpot);
+      AssetDatabase.SaveAssets(); // Это помогает убедиться, что все изменения сохраняются
+      AssetDatabase.Refresh();
+    }
+
     private static void DrawEllipse(Vector2 centerPosition, float radiusX, float radiusY, Color color)
     {
       Handles.color = color;
@@ -228,14 +242,15 @@ namespace Editor.Windows
       for (int i = 0; i < 360; i++)
       {
         float radian = Mathf.Deg2Rad * angle;
-        points[i] = new Vector3(centerPosition.x + Mathf.Cos(radian) * radiusX, centerPosition.y + Mathf.Sin(radian) * radiusY,
+        points[i] = new Vector3(centerPosition.x + Mathf.Cos(radian) * radiusX,
+          centerPosition.y + Mathf.Sin(radian) * radiusY,
           0);
         angle += 1f;
       }
 
       for (int i = 0; i < 360 - 1; i++)
         Handles.DrawLine(points[i], points[i + 1]);
-      
+
       Handles.DrawLine(points[359], points[0]);
     }
   }

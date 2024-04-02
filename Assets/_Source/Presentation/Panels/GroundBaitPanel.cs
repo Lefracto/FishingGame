@@ -2,8 +2,10 @@
 
 namespace Presentation.Panels
 {
-  public class GroundBaitPanel : SimplePanel
+  public class GroundBaitPanel : InventoryPanel
   {
+    
+    
     
   }
 }

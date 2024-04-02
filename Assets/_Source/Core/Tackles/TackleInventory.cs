@@ -60,7 +60,7 @@ namespace Core
     }
 
     public ITackle GetTackle(int id)
-      => _tackles.FirstOrDefault(tackle => tackle.GetModel().Id == id);
+      => _tackles.FirstOrDefault(tackle => tackle.Id == id);
 
     public List<ITackle> GetOneTypeTackles(TackleType type)
       => _tackles.FindAll(tackle => tackle.GetModel().GetTackleType() == type);

@@ -1790,6 +1790,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4980606244139625351}
   - component: {fileID: 8085826175257954850}
+  - component: {fileID: 3978847536983981762}
   m_Layer: 0
   m_Name: VolumeSider
   m_TagString: Untagged
@@ -1867,10 +1868,23 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3978847536983981762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8863904424581119763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7646c343e1eb34192355a81379d916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 8085826175257954850}
 --- !u!1001 &613033489096049651
 PrefabInstance:
   m_ObjectHideFlags: 0

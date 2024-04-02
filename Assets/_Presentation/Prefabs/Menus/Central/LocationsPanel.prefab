@@ -75,8 +75,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278212352
+  m_fontColor: {r: 0, g: 0.33962262, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -165,7 +165,7 @@ RectTransform:
   m_LocalScale: {x: 1.0000799, y: 1.0000799, z: 1.0000799}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7831840416694307859}
+  - {fileID: 9029615002693286879}
   - {fileID: 1563012788238974134}
   m_Father: {fileID: 0}
   m_RootOrder: -1
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.37169808, g: 1, b: 0.4187303, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -338,7 +338,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb17c76d2fb7d9b4a86dd0973842fb43, type: 3}
---- !u!224 &7831840416694307859 stripped
+--- !u!224 &9029615002693286879 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4689738468142527795, guid: eb17c76d2fb7d9b4a86dd0973842fb43, type: 3}
   m_PrefabInstance: {fileID: 4349051496068583148}

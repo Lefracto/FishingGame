@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Core;
 using TMPro;
 using Unity.VisualScripting;
-using Zenject;
 
 public class GameClock : MonoBehaviour
 {

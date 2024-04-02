@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.32125312, g: 0.6037736, b: 0.33134317, a: 0.94509804}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -522,6 +522,7 @@ GameObject:
   - component: {fileID: 4012125508683213383}
   - component: {fileID: 3646403931780868550}
   - component: {fileID: 3629748613086579571}
+  - component: {fileID: 6690146666127089487}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -646,6 +647,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6690146666127089487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284842389305677397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2404a37f3bd75444aa4ad05d0f228347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationKey: Buy
 --- !u!1 &1745840961064498896
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,8 +832,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 89.05, y: 81.88}
-  m_SizeDelta: {x: 461.38, y: 195.02}
+  m_AnchoredPosition: {x: 77.71595, y: 81.88}
+  m_SizeDelta: {x: 484.0481, y: 195.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7257063368846696895
 CanvasRenderer:
@@ -1061,8 +1075,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70.08, y: -124.72}
-  m_SizeDelta: {x: 143.12, y: 165.84}
+  m_AnchoredPosition: {x: -89.232285, y: -124.72}
+  m_SizeDelta: {x: 150.1516, y: 165.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8066498641208566354
 CanvasRenderer:
@@ -1092,7 +1106,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c7997150469bca445bf8c534baef8e86, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 446a22b39feb2604e86dba995b0c87c3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1607,6 +1621,7 @@ GameObject:
   - component: {fileID: 8827119271805111431}
   - component: {fileID: 1631066485830106941}
   - component: {fileID: 2200986112143134812}
+  - component: {fileID: 2890381630427393422}
   m_Layer: 0
   m_Name: TextLabel
   m_TagString: Untagged
@@ -1731,6 +1746,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2890381630427393422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6455619329126597620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2404a37f3bd75444aa4ad05d0f228347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationKey: TackleShop
 --- !u!1 &6489220265426838197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,7 +1997,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 140, y: 40.2}
+  m_CellSize: {x: 121.1, y: 40.2}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2

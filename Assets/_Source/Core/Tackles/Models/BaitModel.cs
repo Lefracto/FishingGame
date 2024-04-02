@@ -8,6 +8,6 @@ namespace Core
     public override TackleType GetTackleType()
       => TackleType.Bait;
 
-    public int CountInPack { get; set; }
+    public int CountInPack;
   }
 }

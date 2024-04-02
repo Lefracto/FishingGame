@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34f91a2f746544feae0a7b8ffc80d299, type: 3}
-  m_Name: GroundBait
+  m_Name: Vabik Special
   m_EditorClassIdentifier: 
   <Id>k__BackingField: 60
   <Visual>k__BackingField:
-    <Name>k__BackingField: "\u041A\u043E\u043C\u0431\u0438\u043A\u043E\u0440\u043C"
-    <Icon>k__BackingField: {fileID: 0}
+    <Name>k__BackingField: Vabik Special
+    <Icon>k__BackingField: {fileID: 21300000, guid: 6d9bae02c4c9eca4c8f044cdae3d0980, type: 3}
     <Description>k__BackingField: Combicorm.D
+  CountInPack: 5

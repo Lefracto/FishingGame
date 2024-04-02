@@ -12,11 +12,12 @@ namespace Core
     {
       Id = id;
       _model = model as BaitModel;
+      if (_model != null) Count = _model.CountInPack;
     }
 
     public TackleModel GetModel()
       => _model;
-    
-    public int Count { get; set; }
+
+    public int Count;
   }
 }

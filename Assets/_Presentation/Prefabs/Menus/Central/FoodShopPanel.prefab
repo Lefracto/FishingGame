@@ -447,6 +447,7 @@ GameObject:
   - component: {fileID: 7556999299967251243}
   - component: {fileID: 1902878777257707248}
   - component: {fileID: 7565222090736974485}
+  - component: {fileID: 1807550976558020304}
   m_Layer: 0
   m_Name: FoodName
   m_TagString: Untagged
@@ -571,6 +572,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1807550976558020304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649441847806013059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3ba5cecdb71bf4184d0135528143ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationKey: 
 --- !u!1 &4070041726068817223
 GameObject:
   m_ObjectHideFlags: 0

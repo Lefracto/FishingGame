@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2636856034463515605}
   - component: {fileID: 8739653103741963556}
   - component: {fileID: 228220776427606919}
-  - component: {fileID: 2399677521092202915}
+  - component: {fileID: 5802837614199416596}
   m_Layer: 0
   m_Name: BaitsPanel
   m_TagString: Untagged
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2399677521092202915
+--- !u!114 &5802837614199416596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,10 +90,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 323406911429203835}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66be6d12ed9593d45a5de064e593ae5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c6750e94dfe4804bf426821301c1f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _contentObject: {fileID: 157369449342338210}
+  _tackleCellPrefab: {fileID: 0}
+  _content: {fileID: 157369449342338210}
 --- !u!1 &3106764856929002481
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +384,7 @@ GameObject:
   - component: {fileID: 9213720207388255708}
   - component: {fileID: 5793007169008544398}
   - component: {fileID: 6365159535953871988}
+  - component: {fileID: 4527698959379265192}
   m_Layer: 0
   m_Name: TextLabel
   m_TagString: Untagged
@@ -506,6 +509,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4527698959379265192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071968509060483190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2404a37f3bd75444aa4ad05d0f228347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationKey: Baits
 --- !u!1 &9127661748256435196
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,7 +705,7 @@ PrefabInstance:
     - target: {fileID: 5407591646434089694, guid: eb17c76d2fb7d9b4a86dd0973842fb43, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2399677521092202915}
+      objectReference: {fileID: 5802837614199416596}
     - target: {fileID: 5407591646434089694, guid: eb17c76d2fb7d9b4a86dd0973842fb43, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -700,7 +716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5407591646434089694, guid: eb17c76d2fb7d9b4a86dd0973842fb43, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SelfDeleter, Assembly-CSharp
+      value: SimplePanel, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5407591646434089694, guid: eb17c76d2fb7d9b4a86dd0973842fb43, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
