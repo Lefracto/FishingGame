@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Beach
   m_EditorClassIdentifier: 
   _id: 1
-  <SpotBackGround>k__BackingField: {fileID: 21300000, guid: e2844c1bb1d65cf47aa33fe4b4506557, type: 3}
+  <SpotBackGround>k__BackingField: {fileID: 21300000, guid: f66ceccf60833884c87c2eb8ee13e4b3, type: 3}
   FishesHere:
   - {fileID: 11400000, guid: 1b2e52d30fb7b844cbf5927946370c09, type: 2}

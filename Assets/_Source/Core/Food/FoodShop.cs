@@ -56,7 +56,7 @@ namespace Core
         foreach ((int, int) item in adoptedData)
           _inventory.AddItem(_sellPositions.FirstOrDefault(x => x.Id == item.Item1), item.Item2);
       }
-      catch (Exception e)
+      catch (Exception)
       {
         SaveData();
       }

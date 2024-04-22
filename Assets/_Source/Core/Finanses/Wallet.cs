@@ -60,7 +60,7 @@ public class Wallet : ISavable
       _amountOfMoney = SavesHelper.LoadAndDeserialize<Wallet>(WALLET_SAVE_PATH).AmountOfMoney;
       _onAmountOfMoneyChanged.Invoke(_amountOfMoney);
     }
-    catch (Exception e)
+    catch (Exception)
     {
       SaveData();
     }

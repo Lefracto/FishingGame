@@ -1,3 +1,4 @@
+using System;
 using Core;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -26,6 +27,12 @@ public class FishInventoryView : MonoBehaviour
     _inventory = inventory;
   }
 
+  public void TestFishAdding()
+  {
+    _inventory.TakeInFish(new Fish(Genus, new System.Random().Next(300, 1500), 5));
+    
+  }
+  
   public async void ShowMenu()
   {
     var handle = _inventoryPanel.LoadAssetAsync<GameObject>();

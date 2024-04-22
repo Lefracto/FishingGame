@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086432a5961c5d94395bf4d4197b3253, type: 3}
   m_Name: Lin
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Lin
+  <Name>k__BackingField: "\u041B\u0456\u043D\u044C"
   <FishImage>k__BackingField: {fileID: 21300000, guid: cb73b4df01426914dae7bc59e1ce911e, type: 3}
-  <MinScoringWeight>k__BackingField: 800
-  <Description>k__BackingField: Lin.D
+  <MinScoringWeight>k__BackingField: 891
+  <Description>k__BackingField: "\u0417\u0432\u044B\u0447\u0430\u0439\u043D\u044B
+    \u043B\u0456\u043D\u044C."

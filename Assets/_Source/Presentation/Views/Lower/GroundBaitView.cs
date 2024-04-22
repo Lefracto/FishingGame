@@ -49,7 +49,9 @@ namespace Presentation.Views.Lower
 
     private void UseGroundBait(int id)
     {
-      Debug.Log($"You have used groundbait with id: {id}");
+      GroundBait groundBait = _inventory.GetTackle(id) as GroundBait;
+      groundBait.Count--;
+      ShowMenu();
     }
   }
   

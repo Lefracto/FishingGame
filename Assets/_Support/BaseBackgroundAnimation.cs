@@ -1,3 +1,5 @@
+
+
 using System;
 using Core;
 using UnityEngine;
@@ -12,6 +14,8 @@ public class BaseBackgroundAnimation : MonoBehaviour
 
   [SerializeField] private Sprite _night;
   [SerializeField] private Sprite _day;
+  [SerializeField] private AudioManager _manager;
+  
   public Image MainBack;
 
   [SerializeField] private GameClock _clock;
@@ -38,13 +42,15 @@ public class BaseBackgroundAnimation : MonoBehaviour
     if (_lastTime.Hours == 5 && time.Hours == 6)
     {
       _animator.SetInteger("BackGap", 1);
-
+      _manager.SetSoundTrack(0);
       // Night to day animation!
     }
 
     if (_lastTime.Hours == 23 && time.Hours == 0)
     {
       _animator.SetInteger("BackGap", 2);
+      _manager.SetSoundTrack(1);
+
       // Day to night animation!
     }
 

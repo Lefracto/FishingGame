@@ -3,11 +3,9 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-
-  public TextAsset _Asset;
-    
     void Start()
     {
+        Debug.Log(Application.persistentDataPath);
     }
 
     void Update()

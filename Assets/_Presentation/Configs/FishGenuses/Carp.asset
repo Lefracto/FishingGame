@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086432a5961c5d94395bf4d4197b3253, type: 3}
   m_Name: Carp
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Carp
+  <Name>k__BackingField: "\u041A\u0430\u0440\u043F"
   <FishImage>k__BackingField: {fileID: 21300000, guid: f9f14ca53d00f694fb3be7bd06392e78, type: 3}
-  <MinScoringWeight>k__BackingField: 1000
-  <Description>k__BackingField: Carp.D
+  <MinScoringWeight>k__BackingField: 1282
+  <Description>k__BackingField: "\u041F\u0440\u043E\u0441\u0442\u0430 \u043A\u0430\u0440\u043F."

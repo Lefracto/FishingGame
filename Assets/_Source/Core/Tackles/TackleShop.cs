@@ -58,7 +58,7 @@ namespace Core
         var modelsId = SavesHelper.LoadAndDeserialize<List<int>>(CONFIG_FILE_NAME);
         modelsId.ForEach(x => _inventory.AddTackle(_models.Find(model => model.Id == x)));
       }
-      catch (Exception e)
+      catch (Exception)
       {
         SaveData();
       }
